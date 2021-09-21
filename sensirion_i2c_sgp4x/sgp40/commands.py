@@ -37,7 +37,6 @@ class Sgp40I2cCmdBase(SensirionI2cCommand):
     """
     SGP40 I²C base command.
     """
-
     def __init__(self, command, tx_data, rx_length, read_delay, timeout,
                  post_processing_time=0.0):
         """
@@ -87,10 +86,9 @@ class Sgp40I2cCmdBase(SensirionI2cCommand):
             post_processing_time=post_processing_time,
         )
 
-
-class Sgp40I2cCmdMeasureRaw(Sgp40I2cCmdBase):
+class Sgp40I2cCmdMeasureRawSignal(Sgp40I2cCmdBase):
     """
-    Measure Raw I²C Command
+    Sgp40 Measure Raw Signal I²C Command
 
     This command starts/continues the VOC measurement mode
     """
@@ -102,16 +100,16 @@ class Sgp40I2cCmdMeasureRaw(Sgp40I2cCmdBase):
         :param int relative_humidity:
             Leaves humidity compensation disabled by sending the default value
             0x8000 (50%RH) or enables humidity compensation when sending the
-            relative humidity in ticks (ticks = %RH * 65535 / 100)
+            relative humidity in ticks (ticks = %RH \* 65535 / 100)
         :param int temperature:
             Leaves humidity compensation disabled by sending the default value
             0x6666 (25 degC) or enables humidity compensation when sending the
-            temperature in ticks (ticks = (degC + 45) * 65535 / 175)
+            temperature in ticks (ticks = (degC + 45) \* 65535 / 175)
         """
-        super(Sgp40I2cCmdMeasureRaw, self).__init__(
+        super(Sgp40I2cCmdMeasureRawSignal, self).__init__(
             command=0x260F,
             tx_data=b"".join([pack(">H", relative_humidity),
-                              pack(">H", temperature)]),
+                           pack(">H", temperature)]),
             rx_length=3,
             read_delay=0.03,
             timeout=0,
@@ -140,9 +138,9 @@ class Sgp40I2cCmdMeasureRaw(Sgp40I2cCmdBase):
         return Sgp40SrawVoc(sraw_voc)
 
 
-class Sgp40I2cCmdMeasureTest(Sgp40I2cCmdBase):
+class Sgp40I2cCmdExecuteSelfTest(Sgp40I2cCmdBase):
     """
-    Measure Test I²C Command
+    Sgp40 Execute Self Test I²C Command
 
     This command triggers the built-in self-test checking for integrity of the
     hotplate and MOX material and returns the result of this test as 2 bytes
@@ -152,7 +150,7 @@ class Sgp40I2cCmdMeasureTest(Sgp40I2cCmdBase):
         """
         Constructor.
         """
-        super(Sgp40I2cCmdMeasureTest, self).__init__(
+        super(Sgp40I2cCmdExecuteSelfTest, self).__init__(
             command=0x280E,
             tx_data=None,
             rx_length=3,
@@ -184,7 +182,7 @@ class Sgp40I2cCmdMeasureTest(Sgp40I2cCmdBase):
 
 class Sgp40I2cCmdTurnHeaterOff(Sgp40I2cCmdBase):
     """
-    Turn Heater Off I²C Command
+    Sgp4x Turn Heater Off I²C Command
 
     This command turns the hotplate off and stops the measurement.
     Subsequently, the sensor enters the idle mode.
@@ -202,3 +200,45 @@ class Sgp40I2cCmdTurnHeaterOff(Sgp40I2cCmdBase):
             timeout=0,
             post_processing_time=0.001,
         )
+
+
+class Sgp40I2cCmdGetSerialNumber(Sgp40I2cCmdBase):
+    """
+    Sgp4x Get Serial Number I²C Command
+
+    This command provides the decimal serial number of the SGP40 chip by
+    returning 3x2 bytes (+ 1 CRC byte).
+    """
+
+    def __init__(self):
+        """
+        Constructor.
+        """
+        super(Sgp40I2cCmdGetSerialNumber, self).__init__(
+            command=0x3682,
+            tx_data=None,
+            rx_length=9,
+            read_delay=0.001,
+            timeout=0,
+            post_processing_time=0.0,
+        )
+
+    def interpret_response(self, data):
+        """
+        Validates the CRCs of the received data from the device and returns
+        the interpreted data.
+
+        :param bytes data:
+            Received raw bytes from the read operation.
+        :return: 48-bit unique serial number
+        :rtype: list(int)
+        :raise ~sensirion_i2c_driver.errors.I2cChecksumError:
+            If a received CRC was wrong.
+        """
+        # check and remove CRCs
+        checked_data = Sgp40I2cCmdBase.interpret_response(self, data)
+
+        # convert raw received data into proper data types
+        serial_number = [int(ii) for ii in unpack(">{}H".format(len(checked_data[0:6]) // 2), checked_data[0:6])]  # list(uint16)
+        return serial_number
+

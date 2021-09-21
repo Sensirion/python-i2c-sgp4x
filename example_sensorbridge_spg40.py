@@ -21,6 +21,8 @@ with ShdlcSerialPort(port='COM1', baudrate=460800) as port:
     i2c_transceiver = SensorBridgeI2cProxy(bridge, port=SensorBridgePort.ONE)
     sgp40 = Sgp40I2cDevice(I2cConnection(i2c_transceiver))
 
+    print("SGP40 Serial Number: {}".format(sgp40.get_serial_number()))
+
     # Measure every second for one minute
     for _ in range(60):
         time.sleep(1)

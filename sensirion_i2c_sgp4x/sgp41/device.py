@@ -5,8 +5,8 @@ from __future__ import absolute_import, division, print_function
 
 from sensirion_i2c_driver import I2cDevice
 
-from .commands import Sgp41I2cCmdConditioning, Sgp41I2cCmdMeasureRaw, Sgp41I2cCmdMeasureTest, \
-    Sgp41I2cCmdGetSerialNumber, Sgp41I2cCmdTurnHeaterOff
+from .commands import Sgp41I2cCmdExecuteConditioning, Sgp41I2cCmdMeasureRawSignals, \
+    Sgp41I2cCmdExecuteSelfTest, Sgp41I2cCmdGetSerialNumber, Sgp41I2cCmdTurnHeaterOff
 
 
 class Sgp41I2cDevice(I2cDevice):
@@ -27,7 +27,7 @@ class Sgp41I2cDevice(I2cDevice):
 
     def get_serial_number(self):
         """
-        Get Serial Number
+        Sgp4x get Serial Number
 
         :return: 48-bit serial number as int
         :rtype: int
@@ -60,7 +60,7 @@ class Sgp41I2cDevice(I2cDevice):
         else:
             t_raw = int((temperature + 45) * 65535 / 175)
 
-        return self.execute(Sgp41I2cCmdConditioning(rh_raw, t_raw))
+        return self.execute(Sgp41I2cCmdExecuteConditioning(rh_raw, t_raw))
 
     def measure_raw(self, relative_humidity=None, temperature=None):
         """
@@ -82,7 +82,7 @@ class Sgp41I2cDevice(I2cDevice):
         else:
             t_raw = int((temperature + 45) * 65535 / 175)
 
-        return self.execute(Sgp41I2cCmdMeasureRaw(rh_raw, t_raw))
+        return self.execute(Sgp41I2cCmdMeasureRawSignals(rh_raw, t_raw))
 
     def turn_heater_off(self):
         """
@@ -103,4 +103,4 @@ class Sgp41I2cDevice(I2cDevice):
         :return: 0xD400: all tests passed successfully or 0x4B00: one or more tests have failed
         :rtype: uint16
         """
-        return self.execute(Sgp41I2cCmdMeasureTest())
+        return self.execute(Sgp41I2cCmdExecuteSelfTest())
