@@ -86,6 +86,7 @@ class Sgp40I2cCmdBase(SensirionI2cCommand):
             post_processing_time=post_processing_time,
         )
 
+
 class Sgp40I2cCmdMeasureRawSignal(Sgp40I2cCmdBase):
     """
     SGP40 Measure Raw Signal I²C Command
@@ -238,7 +239,6 @@ class Sgp40I2cCmdGetSerialNumber(Sgp40I2cCmdBase):
         # check and remove CRCs
         checked_data = Sgp40I2cCmdBase.interpret_response(self, data)
 
-        # convert raw received data into proper data types
-        serial_number = [int(ii) for ii in unpack(">{}H".format(len(checked_data[0:6]) // 2), checked_data[0:6])]  # list(uint16)
+        # convert raw received data into proper data types (list[uint16])
+        serial_number = [int(ii) for ii in unpack(">{}H".format(len(checked_data[0:6]) // 2), checked_data[0:6])]
         return serial_number
-

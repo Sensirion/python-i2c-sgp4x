@@ -37,6 +37,7 @@ class Sgp41I2cCmdBase(SensirionI2cCommand):
     """
     SGP41 I²C base command.
     """
+
     def __init__(self, command, tx_data, rx_length, read_delay, timeout,
                  post_processing_time=0.0):
         """
@@ -86,6 +87,7 @@ class Sgp41I2cCmdBase(SensirionI2cCommand):
             post_processing_time=post_processing_time,
         )
 
+
 class Sgp41I2cCmdExecuteConditioning(Sgp41I2cCmdBase):
     """
     SGP41 Execute Conditioning I²C Command
@@ -109,7 +111,7 @@ class Sgp41I2cCmdExecuteConditioning(Sgp41I2cCmdBase):
         super(Sgp41I2cCmdExecuteConditioning, self).__init__(
             command=0x2612,
             tx_data=b"".join([pack(">H", default_rh),
-                           pack(">H", default_t)]),
+                              pack(">H", default_t)]),
             rx_length=3,
             read_delay=0.05,
             timeout=0,
@@ -161,7 +163,7 @@ class Sgp41I2cCmdMeasureRawSignals(Sgp41I2cCmdBase):
         super(Sgp41I2cCmdMeasureRawSignals, self).__init__(
             command=0x2619,
             tx_data=b"".join([pack(">H", relative_humidity),
-                           pack(">H", temperature)]),
+                              pack(">H", temperature)]),
             rx_length=6,
             read_delay=0.05,
             timeout=0,
@@ -304,4 +306,3 @@ class Sgp41I2cCmdGetSerialNumber(Sgp41I2cCmdBase):
         serial_number = [int(ii) for ii in
                          unpack(">{}H".format(len(checked_data[0:6]) // 2), checked_data[0:6])]  # list(uint16)
         return serial_number
-
