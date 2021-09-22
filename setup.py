@@ -29,7 +29,6 @@ extras_require = {
     ],
     'example': [
         'sensirion-shdlc-sensorbridge~=0.1.1',
-        'sensirion-shdlc-driver~=0.1.5',
     ],
 }
 
