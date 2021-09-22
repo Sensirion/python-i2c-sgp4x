@@ -207,7 +207,7 @@ class Sgp40I2cCmdGetSerialNumber(Sgp40I2cCmdBase):
     SGP40 Get Serial Number I²C Command
 
     This command provides the decimal serial number of the SGP40 chip by
-    returning 3x2 bytes (+ 1 CRC byte).
+    returning 3x2 bytes.
     """
 
     def __init__(self):
