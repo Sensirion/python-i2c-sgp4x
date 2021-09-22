@@ -7,6 +7,8 @@ with LinuxI2cTransceiver('/dev/i2c-1') as i2c_transceiver:
     # Create SGP40 device
     sgp40 = Sgp40I2cDevice(I2cConnection(i2c_transceiver))
 
+    print("SGP40 Serial Number: {}".format(sgp40.get_serial_number()))
+
     # Measure every second for one minute
     for _ in range(60):
         time.sleep(1)
