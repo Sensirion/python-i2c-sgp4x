@@ -88,7 +88,7 @@ class Sgp41I2cCmdBase(SensirionI2cCommand):
 
 class Sgp41I2cCmdExecuteConditioning(Sgp41I2cCmdBase):
     """
-    Sgp41 Execute Conditioning I²C Command
+    SGP41 Execute Conditioning I²C Command
 
     This command starts the conditioning, i.e., the VOC pixel will be operated
     at the same temperature as it is by calling the sgp41_measure_raw command
@@ -140,7 +140,7 @@ class Sgp41I2cCmdExecuteConditioning(Sgp41I2cCmdBase):
 
 class Sgp41I2cCmdMeasureRawSignals(Sgp41I2cCmdBase):
     """
-    Sgp41 Measure Raw Signals I²C Command
+    SGP41 Measure Raw Signals I²C Command
 
     This command starts/continues the VOC+NOx measurement mode
     """
@@ -152,11 +152,11 @@ class Sgp41I2cCmdMeasureRawSignals(Sgp41I2cCmdBase):
         :param int relative_humidity:
             Leaves humidity compensation disabled by sending the default value
             0x8000 (50%RH) or enables humidity compensation when sending the
-            relative humidity in ticks (ticks = %RH \* 65535 / 100)
+            relative humidity in ticks (ticks = %RH * 65535 / 100)
         :param int temperature:
             Leaves humidity compensation disabled by sending the default value
             0x6666 (25 degC) or enables humidity compensation when sending the
-            temperature in ticks (ticks = (degC + 45) \* 65535 / 175)
+            temperature in ticks (ticks = (degC + 45) * 65535 / 175)
         """
         super(Sgp41I2cCmdMeasureRawSignals, self).__init__(
             command=0x2619,
@@ -199,7 +199,7 @@ class Sgp41I2cCmdMeasureRawSignals(Sgp41I2cCmdBase):
 
 class Sgp41I2cCmdExecuteSelfTest(Sgp41I2cCmdBase):
     """
-    Sgp41 Execute Self Test I²C Command
+    SGP41 Execute Self Test I²C Command
 
     This command triggers the built-in self-test checking for integrity of both
     hotplate and MOX material and returns the result of this test as 2 bytes
@@ -244,7 +244,7 @@ class Sgp41I2cCmdExecuteSelfTest(Sgp41I2cCmdBase):
 
 class Sgp41I2cCmdTurnHeaterOff(Sgp41I2cCmdBase):
     """
-    Sgp4x Turn Heater Off I²C Command
+    SGP41 Turn Heater Off I²C Command
 
     This command turns the hotplate off and stops the measurement.
     Subsequently, the sensor enters the idle mode.
@@ -266,7 +266,7 @@ class Sgp41I2cCmdTurnHeaterOff(Sgp41I2cCmdBase):
 
 class Sgp41I2cCmdGetSerialNumber(Sgp41I2cCmdBase):
     """
-    Sgp4x Get Serial Number I²C Command
+    SGP41 Get Serial Number I²C Command
 
     This command provides the decimal serial number of the SGP41 chip by
     returning 3x2 bytes (+ 1 CRC byte).

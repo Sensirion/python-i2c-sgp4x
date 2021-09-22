@@ -27,7 +27,7 @@ class Sgp41I2cDevice(I2cDevice):
 
     def get_serial_number(self):
         """
-        Sgp4x get Serial Number
+        Get Serial Number
 
         :return: 48-bit serial number as int
         :rtype: int
