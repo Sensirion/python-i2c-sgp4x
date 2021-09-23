@@ -243,9 +243,9 @@
         <span class="p">)</span></div></div>
 
 
-<div class="viewcode-block" id="Sgp41I2cCmdConditioning"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdConditioning">[docs]</a><span class="k">class</span> <span class="nc">Sgp41I2cCmdConditioning</span><span class="p">(</span><span class="n">Sgp41I2cCmdBase</span><span class="p">):</span>
+<div class="viewcode-block" id="Sgp41I2cCmdExecuteConditioning"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdExecuteConditioning">[docs]</a><span class="k">class</span> <span class="nc">Sgp41I2cCmdExecuteConditioning</span><span class="p">(</span><span class="n">Sgp41I2cCmdBase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Conditioning I²C Command</span>
+<span class="sd">    SGP41 Execute Conditioning I²C Command</span>
 
 <span class="sd">    This command starts the conditioning, i.e., the VOC pixel will be operated</span>
 <span class="sd">    at the same temperature as it is by calling the sgp41_measure_raw command</span>
@@ -254,7 +254,7 @@
 <span class="sd">    pixel SRAW_VOC as 2 bytes (+ 1 CRC byte).</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="Sgp41I2cCmdConditioning.__init__"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdConditioning.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">default_rh</span><span class="p">,</span> <span class="n">default_t</span><span class="p">):</span>
+<div class="viewcode-block" id="Sgp41I2cCmdExecuteConditioning.__init__"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdExecuteConditioning.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">default_rh</span><span class="p">,</span> <span class="n">default_t</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Constructor.</span>
 
@@ -263,7 +263,7 @@
 <span class="sd">        :param int default_t:</span>
 <span class="sd">            Default conditions for temperature.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">Sgp41I2cCmdConditioning</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Sgp41I2cCmdExecuteConditioning</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="n">command</span><span class="o">=</span><span class="mh">0x2612</span><span class="p">,</span>
             <span class="n">tx_data</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">pack</span><span class="p">(</span><span class="s2">&quot;&gt;H&quot;</span><span class="p">,</span> <span class="n">default_rh</span><span class="p">),</span>
                               <span class="n">pack</span><span class="p">(</span><span class="s2">&quot;&gt;H&quot;</span><span class="p">,</span> <span class="n">default_t</span><span class="p">)]),</span>
@@ -273,7 +273,7 @@
             <span class="n">post_processing_time</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
         <span class="p">)</span></div>
 
-<div class="viewcode-block" id="Sgp41I2cCmdConditioning.interpret_response"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdConditioning.interpret_response">[docs]</a>    <span class="k">def</span> <span class="nf">interpret_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<div class="viewcode-block" id="Sgp41I2cCmdExecuteConditioning.interpret_response"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdExecuteConditioning.interpret_response">[docs]</a>    <span class="k">def</span> <span class="nf">interpret_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Validates the CRCs of the received data from the device and returns</span>
 <span class="sd">        the interpreted data.</span>
@@ -295,27 +295,27 @@
         <span class="k">return</span> <span class="n">Sgp41SrawVoc</span><span class="p">(</span><span class="n">sraw_voc</span><span class="p">)</span></div></div>
 
 
-<div class="viewcode-block" id="Sgp41I2cCmdMeasureRaw"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdMeasureRaw">[docs]</a><span class="k">class</span> <span class="nc">Sgp41I2cCmdMeasureRaw</span><span class="p">(</span><span class="n">Sgp41I2cCmdBase</span><span class="p">):</span>
+<div class="viewcode-block" id="Sgp41I2cCmdMeasureRawSignals"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdMeasureRawSignals">[docs]</a><span class="k">class</span> <span class="nc">Sgp41I2cCmdMeasureRawSignals</span><span class="p">(</span><span class="n">Sgp41I2cCmdBase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Measure Raw I²C Command</span>
+<span class="sd">    SGP41 Measure Raw Signals I²C Command</span>
 
 <span class="sd">    This command starts/continues the VOC+NOx measurement mode</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="Sgp41I2cCmdMeasureRaw.__init__"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdMeasureRaw.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">relative_humidity</span><span class="p">,</span> <span class="n">temperature</span><span class="p">):</span>
+<div class="viewcode-block" id="Sgp41I2cCmdMeasureRawSignals.__init__"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdMeasureRawSignals.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">relative_humidity</span><span class="p">,</span> <span class="n">temperature</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Constructor.</span>
 
 <span class="sd">        :param int relative_humidity:</span>
 <span class="sd">            Leaves humidity compensation disabled by sending the default value</span>
 <span class="sd">            0x8000 (50%RH) or enables humidity compensation when sending the</span>
-<span class="sd">            relative humidity in ticks (ticks = %RH \* 65535 / 100)</span>
+<span class="sd">            relative humidity in ticks (ticks = %RH * 65535 / 100)</span>
 <span class="sd">        :param int temperature:</span>
 <span class="sd">            Leaves humidity compensation disabled by sending the default value</span>
 <span class="sd">            0x6666 (25 degC) or enables humidity compensation when sending the</span>
-<span class="sd">            temperature in ticks (ticks = (degC + 45) \* 65535 / 175)</span>
+<span class="sd">            temperature in ticks (ticks = (degC + 45) * 65535 / 175)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">Sgp41I2cCmdMeasureRaw</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Sgp41I2cCmdMeasureRawSignals</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="n">command</span><span class="o">=</span><span class="mh">0x2619</span><span class="p">,</span>
             <span class="n">tx_data</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">pack</span><span class="p">(</span><span class="s2">&quot;&gt;H&quot;</span><span class="p">,</span> <span class="n">relative_humidity</span><span class="p">),</span>
                               <span class="n">pack</span><span class="p">(</span><span class="s2">&quot;&gt;H&quot;</span><span class="p">,</span> <span class="n">temperature</span><span class="p">)]),</span>
@@ -325,7 +325,7 @@
             <span class="n">post_processing_time</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
         <span class="p">)</span></div>
 
-<div class="viewcode-block" id="Sgp41I2cCmdMeasureRaw.interpret_response"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdMeasureRaw.interpret_response">[docs]</a>    <span class="k">def</span> <span class="nf">interpret_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<div class="viewcode-block" id="Sgp41I2cCmdMeasureRawSignals.interpret_response"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdMeasureRawSignals.interpret_response">[docs]</a>    <span class="k">def</span> <span class="nf">interpret_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Validates the CRCs of the received data from the device and returns</span>
 <span class="sd">        the interpreted data.</span>
@@ -354,19 +354,19 @@
         <span class="k">return</span> <span class="n">Sgp41SrawVoc</span><span class="p">(</span><span class="n">sraw_voc</span><span class="p">),</span> <span class="n">Sgp41SrawNox</span><span class="p">(</span><span class="n">sraw_nox</span><span class="p">)</span></div></div>
 
 
-<div class="viewcode-block" id="Sgp41I2cCmdMeasureTest"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdMeasureTest">[docs]</a><span class="k">class</span> <span class="nc">Sgp41I2cCmdMeasureTest</span><span class="p">(</span><span class="n">Sgp41I2cCmdBase</span><span class="p">):</span>
+<div class="viewcode-block" id="Sgp41I2cCmdExecuteSelfTest"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdExecuteSelfTest">[docs]</a><span class="k">class</span> <span class="nc">Sgp41I2cCmdExecuteSelfTest</span><span class="p">(</span><span class="n">Sgp41I2cCmdBase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Measure Test I²C Command</span>
+<span class="sd">    SGP41 Execute Self Test I²C Command</span>
 
 <span class="sd">    This command triggers the built-in self-test checking for integrity of both</span>
 <span class="sd">    hotplate and MOX material and returns the result of this test as 2 bytes</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="Sgp41I2cCmdMeasureTest.__init__"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdMeasureTest.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Sgp41I2cCmdExecuteSelfTest.__init__"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdExecuteSelfTest.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Constructor.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">Sgp41I2cCmdMeasureTest</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Sgp41I2cCmdExecuteSelfTest</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
             <span class="n">command</span><span class="o">=</span><span class="mh">0x280E</span><span class="p">,</span>
             <span class="n">tx_data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
             <span class="n">rx_length</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
@@ -375,7 +375,7 @@
             <span class="n">post_processing_time</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
         <span class="p">)</span></div>
 
-<div class="viewcode-block" id="Sgp41I2cCmdMeasureTest.interpret_response"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdMeasureTest.interpret_response">[docs]</a>    <span class="k">def</span> <span class="nf">interpret_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+<div class="viewcode-block" id="Sgp41I2cCmdExecuteSelfTest.interpret_response"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdExecuteSelfTest.interpret_response">[docs]</a>    <span class="k">def</span> <span class="nf">interpret_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Validates the CRCs of the received data from the device and returns</span>
 <span class="sd">        the interpreted data.</span>
@@ -401,7 +401,7 @@
 
 <div class="viewcode-block" id="Sgp41I2cCmdTurnHeaterOff"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdTurnHeaterOff">[docs]</a><span class="k">class</span> <span class="nc">Sgp41I2cCmdTurnHeaterOff</span><span class="p">(</span><span class="n">Sgp41I2cCmdBase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Turn Heater Off I²C Command</span>
+<span class="sd">    SGP41 Turn Heater Off I²C Command</span>
 
 <span class="sd">    This command turns the hotplate off and stops the measurement.</span>
 <span class="sd">    Subsequently, the sensor enters the idle mode.</span>
@@ -423,10 +423,10 @@
 
 <div class="viewcode-block" id="Sgp41I2cCmdGetSerialNumber"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdGetSerialNumber">[docs]</a><span class="k">class</span> <span class="nc">Sgp41I2cCmdGetSerialNumber</span><span class="p">(</span><span class="n">Sgp41I2cCmdBase</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Get Serial Number I²C Command</span>
+<span class="sd">    SGP41 Get Serial Number I²C Command</span>
 
 <span class="sd">    This command provides the decimal serial number of the SGP41 chip by</span>
-<span class="sd">    returning 3x2 bytes (+ 1 CRC byte).</span>
+<span class="sd">    returning 3x2 bytes.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="Sgp41I2cCmdGetSerialNumber.__init__"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdGetSerialNumber.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>

@@ -198,6 +198,22 @@
 </dd></dl>
 
 <dl class="method">
+<dt id="sensirion_i2c_sgp4x.sgp40.device.Sgp40I2cDevice.get_serial_number">
+<code class="descname">get_serial_number</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp40/device.html#Sgp40I2cDevice.get_serial_number"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp40.device.Sgp40I2cDevice.get_serial_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get Serial Number</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">48-bit serial number as int</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
 <dt id="sensirion_i2c_sgp4x.sgp40.device.Sgp40I2cDevice.measure_raw">
 <code class="descname">measure_raw</code><span class="sig-paren">(</span><em>relative_humidity=None</em>, <em>temperature=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp40/device.html#Sgp40I2cDevice.measure_raw"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp40.device.Sgp40I2cDevice.measure_raw" title="Permalink to this definition">¶</a></dt>
 <dd><p>Read raw VOC signal</p>
@@ -375,13 +391,13 @@ the data with all CRCs removed.</p>
 </dd></dl>
 
 <dl class="class">
-<dt id="sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdMeasureRaw">
-<em class="property">class </em><code class="descclassname">sensirion_i2c_sgp4x.sgp40.commands.</code><code class="descname">Sgp40I2cCmdMeasureRaw</code><span class="sig-paren">(</span><em>relative_humidity</em>, <em>temperature</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp40/commands.html#Sgp40I2cCmdMeasureRaw"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdMeasureRaw" title="Permalink to this definition">¶</a></dt>
-<dd><p>Measure Raw I²C Command</p>
+<dt id="sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdMeasureRawSignal">
+<em class="property">class </em><code class="descclassname">sensirion_i2c_sgp4x.sgp40.commands.</code><code class="descname">Sgp40I2cCmdMeasureRawSignal</code><span class="sig-paren">(</span><em>relative_humidity</em>, <em>temperature</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp40/commands.html#Sgp40I2cCmdMeasureRawSignal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdMeasureRawSignal" title="Permalink to this definition">¶</a></dt>
+<dd><p>SGP40 Measure Raw Signal I²C Command</p>
 <p>This command starts/continues the VOC measurement mode</p>
 <dl class="method">
-<dt id="sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdMeasureRaw.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><em>relative_humidity</em>, <em>temperature</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp40/commands.html#Sgp40I2cCmdMeasureRaw.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdMeasureRaw.__init__" title="Permalink to this definition">¶</a></dt>
+<dt id="sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdMeasureRawSignal.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>relative_humidity</em>, <em>temperature</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp40/commands.html#Sgp40I2cCmdMeasureRawSignal.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdMeasureRawSignal.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Constructor.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -402,8 +418,8 @@ temperature in ticks (ticks = (degC + 45) * 65535 / 175)</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdMeasureRaw.interpret_response">
-<code class="descname">interpret_response</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp40/commands.html#Sgp40I2cCmdMeasureRaw.interpret_response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdMeasureRaw.interpret_response" title="Permalink to this definition">¶</a></dt>
+<dt id="sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdMeasureRawSignal.interpret_response">
+<code class="descname">interpret_response</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp40/commands.html#Sgp40I2cCmdMeasureRawSignal.interpret_response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdMeasureRawSignal.interpret_response" title="Permalink to this definition">¶</a></dt>
 <dd><p>Validates the CRCs of the received data from the device and returns
 the interpreted data.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -427,20 +443,20 @@ resistance of the sensing element.</td>
 </dd></dl>
 
 <dl class="class">
-<dt id="sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdMeasureTest">
-<em class="property">class </em><code class="descclassname">sensirion_i2c_sgp4x.sgp40.commands.</code><code class="descname">Sgp40I2cCmdMeasureTest</code><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp40/commands.html#Sgp40I2cCmdMeasureTest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdMeasureTest" title="Permalink to this definition">¶</a></dt>
-<dd><p>Measure Test I²C Command</p>
+<dt id="sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdExecuteSelfTest">
+<em class="property">class </em><code class="descclassname">sensirion_i2c_sgp4x.sgp40.commands.</code><code class="descname">Sgp40I2cCmdExecuteSelfTest</code><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp40/commands.html#Sgp40I2cCmdExecuteSelfTest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdExecuteSelfTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>SGP40 Execute Self Test I²C Command</p>
 <p>This command triggers the built-in self-test checking for integrity of the
 hotplate and MOX material and returns the result of this test as 2 bytes</p>
 <dl class="method">
-<dt id="sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdMeasureTest.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp40/commands.html#Sgp40I2cCmdMeasureTest.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdMeasureTest.__init__" title="Permalink to this definition">¶</a></dt>
+<dt id="sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdExecuteSelfTest.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp40/commands.html#Sgp40I2cCmdExecuteSelfTest.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdExecuteSelfTest.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Constructor.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdMeasureTest.interpret_response">
-<code class="descname">interpret_response</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp40/commands.html#Sgp40I2cCmdMeasureTest.interpret_response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdMeasureTest.interpret_response" title="Permalink to this definition">¶</a></dt>
+<dt id="sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdExecuteSelfTest.interpret_response">
+<code class="descname">interpret_response</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp40/commands.html#Sgp40I2cCmdExecuteSelfTest.interpret_response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdExecuteSelfTest.interpret_response" title="Permalink to this definition">¶</a></dt>
 <dd><p>Validates the CRCs of the received data from the device and returns
 the interpreted data.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -465,7 +481,7 @@ tests have failed</td>
 <dl class="class">
 <dt id="sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdTurnHeaterOff">
 <em class="property">class </em><code class="descclassname">sensirion_i2c_sgp4x.sgp40.commands.</code><code class="descname">Sgp40I2cCmdTurnHeaterOff</code><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp40/commands.html#Sgp40I2cCmdTurnHeaterOff"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdTurnHeaterOff" title="Permalink to this definition">¶</a></dt>
-<dd><p>Turn Heater Off I²C Command</p>
+<dd><p>SGP40 Turn Heater Off I²C Command</p>
 <p>This command turns the hotplate off and stops the measurement.
 Subsequently, the sensor enters the idle mode.</p>
 <dl class="method">
@@ -488,6 +504,41 @@ the data with all CRCs removed.</p>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The received bytes, or None if there is no data received.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bytes or None</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-i2c-driver/api.html#sensirion_i2c_driver.errors.I2cChecksumError" title="(in Sensirion I²C Python Driver v1.0.1)"><strong>I2cChecksumError</strong></a> – If a received CRC was wrong.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdGetSerialNumber">
+<em class="property">class </em><code class="descclassname">sensirion_i2c_sgp4x.sgp40.commands.</code><code class="descname">Sgp40I2cCmdGetSerialNumber</code><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp40/commands.html#Sgp40I2cCmdGetSerialNumber"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdGetSerialNumber" title="Permalink to this definition">¶</a></dt>
+<dd><p>SGP40 Get Serial Number I²C Command</p>
+<p>This command provides the decimal serial number of the SGP40 chip by
+returning 3x2 bytes.</p>
+<dl class="method">
+<dt id="sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdGetSerialNumber.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp40/commands.html#Sgp40I2cCmdGetSerialNumber.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdGetSerialNumber.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdGetSerialNumber.interpret_response">
+<code class="descname">interpret_response</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp40/commands.html#Sgp40I2cCmdGetSerialNumber.interpret_response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdGetSerialNumber.interpret_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validates the CRCs of the received data from the device and returns
+the interpreted data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Received raw bytes from the read operation.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">48-bit unique serial number</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list(int)</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-i2c-driver/api.html#sensirion_i2c_driver.errors.I2cChecksumError" title="(in Sensirion I²C Python Driver v1.0.1)"><strong>I2cChecksumError</strong></a> – If a received CRC was wrong.</td>
 </tr>
@@ -782,17 +833,17 @@ the data with all CRCs removed.</p>
 </dd></dl>
 
 <dl class="class">
-<dt id="sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdConditioning">
-<em class="property">class </em><code class="descclassname">sensirion_i2c_sgp4x.sgp41.commands.</code><code class="descname">Sgp41I2cCmdConditioning</code><span class="sig-paren">(</span><em>default_rh</em>, <em>default_t</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp41/commands.html#Sgp41I2cCmdConditioning"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdConditioning" title="Permalink to this definition">¶</a></dt>
-<dd><p>Conditioning I²C Command</p>
+<dt id="sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdExecuteConditioning">
+<em class="property">class </em><code class="descclassname">sensirion_i2c_sgp4x.sgp41.commands.</code><code class="descname">Sgp41I2cCmdExecuteConditioning</code><span class="sig-paren">(</span><em>default_rh</em>, <em>default_t</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp41/commands.html#Sgp41I2cCmdExecuteConditioning"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdExecuteConditioning" title="Permalink to this definition">¶</a></dt>
+<dd><p>SGP41 Execute Conditioning I²C Command</p>
 <p>This command starts the conditioning, i.e., the VOC pixel will be operated
 at the same temperature as it is by calling the sgp41_measure_raw command
 while the NOx pixel will be operated at a different temperature for
 conditioning. This command returns only the measured raw signal of the VOC
 pixel SRAW_VOC as 2 bytes (+ 1 CRC byte).</p>
 <dl class="method">
-<dt id="sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdConditioning.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><em>default_rh</em>, <em>default_t</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp41/commands.html#Sgp41I2cCmdConditioning.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdConditioning.__init__" title="Permalink to this definition">¶</a></dt>
+<dt id="sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdExecuteConditioning.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>default_rh</em>, <em>default_t</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp41/commands.html#Sgp41I2cCmdExecuteConditioning.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdExecuteConditioning.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Constructor.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -809,8 +860,8 @@ pixel SRAW_VOC as 2 bytes (+ 1 CRC byte).</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdConditioning.interpret_response">
-<code class="descname">interpret_response</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp41/commands.html#Sgp41I2cCmdConditioning.interpret_response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdConditioning.interpret_response" title="Permalink to this definition">¶</a></dt>
+<dt id="sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdExecuteConditioning.interpret_response">
+<code class="descname">interpret_response</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp41/commands.html#Sgp41I2cCmdExecuteConditioning.interpret_response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdExecuteConditioning.interpret_response" title="Permalink to this definition">¶</a></dt>
 <dd><p>Validates the CRCs of the received data from the device and returns
 the interpreted data.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -834,13 +885,13 @@ resistance of the sensing element.</td>
 </dd></dl>
 
 <dl class="class">
-<dt id="sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdMeasureRaw">
-<em class="property">class </em><code class="descclassname">sensirion_i2c_sgp4x.sgp41.commands.</code><code class="descname">Sgp41I2cCmdMeasureRaw</code><span class="sig-paren">(</span><em>relative_humidity</em>, <em>temperature</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp41/commands.html#Sgp41I2cCmdMeasureRaw"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdMeasureRaw" title="Permalink to this definition">¶</a></dt>
-<dd><p>Measure Raw I²C Command</p>
+<dt id="sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdMeasureRawSignals">
+<em class="property">class </em><code class="descclassname">sensirion_i2c_sgp4x.sgp41.commands.</code><code class="descname">Sgp41I2cCmdMeasureRawSignals</code><span class="sig-paren">(</span><em>relative_humidity</em>, <em>temperature</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp41/commands.html#Sgp41I2cCmdMeasureRawSignals"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdMeasureRawSignals" title="Permalink to this definition">¶</a></dt>
+<dd><p>SGP41 Measure Raw Signals I²C Command</p>
 <p>This command starts/continues the VOC+NOx measurement mode</p>
 <dl class="method">
-<dt id="sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdMeasureRaw.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><em>relative_humidity</em>, <em>temperature</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp41/commands.html#Sgp41I2cCmdMeasureRaw.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdMeasureRaw.__init__" title="Permalink to this definition">¶</a></dt>
+<dt id="sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdMeasureRawSignals.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>relative_humidity</em>, <em>temperature</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp41/commands.html#Sgp41I2cCmdMeasureRawSignals.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdMeasureRawSignals.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Constructor.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -861,8 +912,8 @@ temperature in ticks (ticks = (degC + 45) * 65535 / 175)</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdMeasureRaw.interpret_response">
-<code class="descname">interpret_response</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp41/commands.html#Sgp41I2cCmdMeasureRaw.interpret_response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdMeasureRaw.interpret_response" title="Permalink to this definition">¶</a></dt>
+<dt id="sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdMeasureRawSignals.interpret_response">
+<code class="descname">interpret_response</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp41/commands.html#Sgp41I2cCmdMeasureRawSignals.interpret_response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdMeasureRawSignals.interpret_response" title="Permalink to this definition">¶</a></dt>
 <dd><p>Validates the CRCs of the received data from the device and returns
 the interpreted data.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -894,20 +945,20 @@ the sensing element.</li>
 </dd></dl>
 
 <dl class="class">
-<dt id="sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdMeasureTest">
-<em class="property">class </em><code class="descclassname">sensirion_i2c_sgp4x.sgp41.commands.</code><code class="descname">Sgp41I2cCmdMeasureTest</code><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp41/commands.html#Sgp41I2cCmdMeasureTest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdMeasureTest" title="Permalink to this definition">¶</a></dt>
-<dd><p>Measure Test I²C Command</p>
+<dt id="sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdExecuteSelfTest">
+<em class="property">class </em><code class="descclassname">sensirion_i2c_sgp4x.sgp41.commands.</code><code class="descname">Sgp41I2cCmdExecuteSelfTest</code><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp41/commands.html#Sgp41I2cCmdExecuteSelfTest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdExecuteSelfTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>SGP41 Execute Self Test I²C Command</p>
 <p>This command triggers the built-in self-test checking for integrity of both
 hotplate and MOX material and returns the result of this test as 2 bytes</p>
 <dl class="method">
-<dt id="sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdMeasureTest.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp41/commands.html#Sgp41I2cCmdMeasureTest.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdMeasureTest.__init__" title="Permalink to this definition">¶</a></dt>
+<dt id="sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdExecuteSelfTest.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp41/commands.html#Sgp41I2cCmdExecuteSelfTest.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdExecuteSelfTest.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Constructor.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdMeasureTest.interpret_response">
-<code class="descname">interpret_response</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp41/commands.html#Sgp41I2cCmdMeasureTest.interpret_response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdMeasureTest.interpret_response" title="Permalink to this definition">¶</a></dt>
+<dt id="sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdExecuteSelfTest.interpret_response">
+<code class="descname">interpret_response</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp41/commands.html#Sgp41I2cCmdExecuteSelfTest.interpret_response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdExecuteSelfTest.interpret_response" title="Permalink to this definition">¶</a></dt>
 <dd><p>Validates the CRCs of the received data from the device and returns
 the interpreted data.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -935,7 +986,7 @@ Check the datasheet for more detailed information.</td>
 <dl class="class">
 <dt id="sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdTurnHeaterOff">
 <em class="property">class </em><code class="descclassname">sensirion_i2c_sgp4x.sgp41.commands.</code><code class="descname">Sgp41I2cCmdTurnHeaterOff</code><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp41/commands.html#Sgp41I2cCmdTurnHeaterOff"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdTurnHeaterOff" title="Permalink to this definition">¶</a></dt>
-<dd><p>Turn Heater Off I²C Command</p>
+<dd><p>SGP41 Turn Heater Off I²C Command</p>
 <p>This command turns the hotplate off and stops the measurement.
 Subsequently, the sensor enters the idle mode.</p>
 <dl class="method">
@@ -970,9 +1021,9 @@ the data with all CRCs removed.</p>
 <dl class="class">
 <dt id="sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdGetSerialNumber">
 <em class="property">class </em><code class="descclassname">sensirion_i2c_sgp4x.sgp41.commands.</code><code class="descname">Sgp41I2cCmdGetSerialNumber</code><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp41/commands.html#Sgp41I2cCmdGetSerialNumber"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdGetSerialNumber" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get Serial Number I²C Command</p>
+<dd><p>SGP41 Get Serial Number I²C Command</p>
 <p>This command provides the decimal serial number of the SGP41 chip by
-returning 3x2 bytes (+ 1 CRC byte).</p>
+returning 3x2 bytes.</p>
 <dl class="method">
 <dt id="sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdGetSerialNumber.__init__">
 <code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp41/commands.html#Sgp41I2cCmdGetSerialNumber.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdGetSerialNumber.__init__" title="Permalink to this definition">¶</a></dt>
