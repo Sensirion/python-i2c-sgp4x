@@ -5,7 +5,8 @@ from __future__ import absolute_import, division, print_function
 
 from sensirion_i2c_driver import I2cDevice
 
-from .commands import Sgp40I2cCmdMeasureRaw, Sgp40I2cCmdMeasureTest, Sgp40I2cCmdTurnHeaterOff
+from .commands import Sgp40I2cCmdMeasureRawSignal, Sgp40I2cCmdExecuteSelfTest, Sgp40I2cCmdTurnHeaterOff,\
+    Sgp40I2cCmdGetSerialNumber
 
 
 class Sgp40I2cDevice(I2cDevice):
@@ -23,6 +24,17 @@ class Sgp40I2cDevice(I2cDevice):
             The I²C slave address, defaults to 0x59.
         """
         super(Sgp40I2cDevice, self).__init__(connection, slave_address)
+
+    def get_serial_number(self):
+        """
+        Get Serial Number
+
+        :return: 48-bit serial number as int
+        :rtype: int
+        """
+        word0, word1, word2 = self.execute(Sgp40I2cCmdGetSerialNumber())
+
+        return word0 << 32 | word1 << 16 | word2
 
     def measure_raw(self, relative_humidity=None, temperature=None):
         """
@@ -43,7 +55,7 @@ class Sgp40I2cDevice(I2cDevice):
         else:
             t_raw = int((temperature + 45) * 65535 / 175)
 
-        return self.execute(Sgp40I2cCmdMeasureRaw(rh_raw, t_raw))
+        return self.execute(Sgp40I2cCmdMeasureRawSignal(rh_raw, t_raw))
 
     def turn_heater_off(self):
         """
@@ -64,4 +76,4 @@ class Sgp40I2cDevice(I2cDevice):
         :return: 0xD400: all tests passed successfully or 0x4B00: one or more tests have failed
         :rtype: uint16
         """
-        return self.execute(Sgp40I2cCmdMeasureTest())
+        return self.execute(Sgp40I2cCmdExecuteSelfTest())

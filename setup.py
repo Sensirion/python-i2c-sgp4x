@@ -26,7 +26,10 @@ extras_require = {
     'docs': [
         'sphinx~=2.2.1',
         'sphinx-rtd-theme~=0.4.3',
-    ]
+    ],
+    'example': [
+        'sensirion-shdlc-sensorbridge~=0.1.1',
+    ],
 }
 
 
