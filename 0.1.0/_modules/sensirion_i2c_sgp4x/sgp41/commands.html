@@ -1,0 +1,522 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>sensirion_i2c_sgp4x.sgp41.commands &mdash; sensirion-i2c-sgp4x 0.1.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/banner.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> sensirion-i2c-sgp4x
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api.html">API Documentation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">sensirion-i2c-sgp4x</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>sensirion_i2c_sgp4x.sgp41.commands</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for sensirion_i2c_sgp4x.sgp41.commands</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1"># (c) Copyright 2021 Sensirion AG, Switzerland</span>
+
+<span class="c1">##############################################################################</span>
+<span class="c1">##############################################################################</span>
+<span class="c1">#                 _____         _    _ _______ _____ ____  _   _</span>
+<span class="c1">#                / ____|   /\  | |  | |__   __|_   _/ __ \| \ | |</span>
+<span class="c1">#               | |       /  \ | |  | |  | |    | || |  | |  \| |</span>
+<span class="c1">#               | |      / /\ \| |  | |  | |    | || |  | | . ` |</span>
+<span class="c1">#               | |____ / ____ \ |__| |  | |   _| || |__| | |\  |</span>
+<span class="c1">#                \_____/_/    \_\____/   |_|  |_____\____/|_| \_|</span>
+<span class="c1">#</span>
+<span class="c1">#     THIS FILE IS AUTOMATICALLY GENERATED AND MUST NOT BE EDITED MANUALLY!</span>
+<span class="c1">#</span>
+<span class="c1"># Generator:    sensirion-i2c-interface-generator 0.3.0</span>
+<span class="c1"># Product:      SGP41</span>
+<span class="c1"># Version:      0.1.0</span>
+<span class="c1">#</span>
+<span class="c1">##############################################################################</span>
+<span class="c1">##############################################################################</span>
+
+<span class="c1"># flake8: noqa</span>
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span><span class="p">,</span> <span class="n">print_function</span>
+
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">struct</span> <span class="kn">import</span> <span class="n">pack</span><span class="p">,</span> <span class="n">unpack</span>
+
+<span class="kn">from</span> <span class="nn">sensirion_i2c_driver</span> <span class="kn">import</span> <span class="n">SensirionI2cCommand</span><span class="p">,</span> <span class="n">CrcCalculator</span>
+
+<span class="kn">from</span> <span class="nn">sensirion_i2c_sgp4x.sgp41.response_types</span> <span class="kn">import</span> <span class="n">Sgp41SrawVoc</span><span class="p">,</span> <span class="n">Sgp41SrawNox</span>
+
+<span class="n">log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="Sgp41I2cCmdBase"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdBase">[docs]</a><span class="k">class</span> <span class="nc">Sgp41I2cCmdBase</span><span class="p">(</span><span class="n">SensirionI2cCommand</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    SGP41 I²C base command.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Sgp41I2cCmdBase.__init__"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdBase.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">tx_data</span><span class="p">,</span> <span class="n">rx_length</span><span class="p">,</span> <span class="n">read_delay</span><span class="p">,</span> <span class="n">timeout</span><span class="p">,</span>
+                 <span class="n">post_processing_time</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Constructs a new SGP41 I²C command.</span>
+
+<span class="sd">        :param int/None command:</span>
+<span class="sd">            The command ID to be sent to the device. None means that no</span>
+<span class="sd">            command will be sent, i.e. only ``tx_data`` (if not None) will</span>
+<span class="sd">            be sent. No CRC is added to these bytes since the command ID</span>
+<span class="sd">            usually already contains a CRC.</span>
+<span class="sd">        :param bytes-like/list/None tx_data:</span>
+<span class="sd">            Bytes to be extended with CRCs and then sent to the I²C device.</span>
+<span class="sd">            None means that no write header will be sent at all (if ``command``</span>
+<span class="sd">            is None too). An empty list means to send the write header (even if</span>
+<span class="sd">            ``command`` is None), but without data following it.</span>
+<span class="sd">        :param int/None rx_length:</span>
+<span class="sd">            Number of bytes to be read from the I²C device, including CRC</span>
+<span class="sd">            bytes. None means that no read header is sent at all. Zero means</span>
+<span class="sd">            to send the read header, but without reading any data.</span>
+<span class="sd">        :param float read_delay:</span>
+<span class="sd">            Delay (in Seconds) to be inserted between the end of the write</span>
+<span class="sd">            operation and the beginning of the read operation. This is needed</span>
+<span class="sd">            if the device needs some time to prepare the RX data, e.g. if it</span>
+<span class="sd">            has to perform a measurement. Set to 0.0 to indicate that no delay</span>
+<span class="sd">            is needed, i.e. the device does not need any processing time.</span>
+<span class="sd">        :param float timeout:</span>
+<span class="sd">            Timeout (in Seconds) to be used in case of clock stretching. If the</span>
+<span class="sd">            device stretches the clock longer than this value, the transceive</span>
+<span class="sd">            operation will be aborted with a timeout error. Set to 0.0 to</span>
+<span class="sd">            indicate that the device will not stretch the clock for this</span>
+<span class="sd">            command.</span>
+<span class="sd">        :param float post_processing_time:</span>
+<span class="sd">            Maximum time in seconds the device needs for post processing of</span>
+<span class="sd">            this command until it is ready to receive the next command. For</span>
+<span class="sd">            example after a device reset command, the device might need some</span>
+<span class="sd">            time until it is ready again. Usually this is 0.0s, i.e. no post</span>
+<span class="sd">            processing is needed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Sgp41I2cCmdBase</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">command</span><span class="o">=</span><span class="n">command</span><span class="p">,</span>
+            <span class="n">tx_data</span><span class="o">=</span><span class="n">tx_data</span><span class="p">,</span>
+            <span class="n">rx_length</span><span class="o">=</span><span class="n">rx_length</span><span class="p">,</span>
+            <span class="n">read_delay</span><span class="o">=</span><span class="n">read_delay</span><span class="p">,</span>
+            <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">,</span>
+            <span class="n">crc</span><span class="o">=</span><span class="n">CrcCalculator</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mh">0x31</span><span class="p">,</span> <span class="mh">0xFF</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">),</span>
+            <span class="n">command_bytes</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+            <span class="n">post_processing_time</span><span class="o">=</span><span class="n">post_processing_time</span><span class="p">,</span>
+        <span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="Sgp41I2cCmdExecuteConditioning"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdExecuteConditioning">[docs]</a><span class="k">class</span> <span class="nc">Sgp41I2cCmdExecuteConditioning</span><span class="p">(</span><span class="n">Sgp41I2cCmdBase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    SGP41 Execute Conditioning I²C Command</span>
+
+<span class="sd">    This command starts the conditioning, i.e., the VOC pixel will be operated</span>
+<span class="sd">    at the same temperature as it is by calling the sgp41_measure_raw command</span>
+<span class="sd">    while the NOx pixel will be operated at a different temperature for</span>
+<span class="sd">    conditioning. This command returns only the measured raw signal of the VOC</span>
+<span class="sd">    pixel SRAW_VOC as 2 bytes (+ 1 CRC byte).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Sgp41I2cCmdExecuteConditioning.__init__"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdExecuteConditioning.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">default_rh</span><span class="p">,</span> <span class="n">default_t</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Constructor.</span>
+
+<span class="sd">        :param int default_rh:</span>
+<span class="sd">            Default conditions for relative humidty.</span>
+<span class="sd">        :param int default_t:</span>
+<span class="sd">            Default conditions for temperature.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Sgp41I2cCmdExecuteConditioning</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">command</span><span class="o">=</span><span class="mh">0x2612</span><span class="p">,</span>
+            <span class="n">tx_data</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">pack</span><span class="p">(</span><span class="s2">&quot;&gt;H&quot;</span><span class="p">,</span> <span class="n">default_rh</span><span class="p">),</span>
+                              <span class="n">pack</span><span class="p">(</span><span class="s2">&quot;&gt;H&quot;</span><span class="p">,</span> <span class="n">default_t</span><span class="p">)]),</span>
+            <span class="n">rx_length</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+            <span class="n">read_delay</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span>
+            <span class="n">timeout</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+            <span class="n">post_processing_time</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="Sgp41I2cCmdExecuteConditioning.interpret_response"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdExecuteConditioning.interpret_response">[docs]</a>    <span class="k">def</span> <span class="nf">interpret_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Validates the CRCs of the received data from the device and returns</span>
+<span class="sd">        the interpreted data.</span>
+
+<span class="sd">        :param bytes data:</span>
+<span class="sd">            Received raw bytes from the read operation.</span>
+<span class="sd">        :return: the raw signal SRAW_VOC</span>
+<span class="sd">                 in ticks which is proportional to the logarithm of the</span>
+<span class="sd">                 resistance of the sensing element.</span>
+<span class="sd">        :rtype: :py:class:`~sensirion_i2c_sgp4x.sgp41.response_types.Sgp41SrawVoc`</span>
+<span class="sd">        :raise ~sensirion_i2c_driver.errors.I2cChecksumError:</span>
+<span class="sd">            If a received CRC was wrong.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># check and remove CRCs</span>
+        <span class="n">checked_data</span> <span class="o">=</span> <span class="n">Sgp41I2cCmdBase</span><span class="o">.</span><span class="n">interpret_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+
+        <span class="c1"># convert raw received data into proper data types</span>
+        <span class="n">sraw_voc</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">unpack</span><span class="p">(</span><span class="s2">&quot;&gt;H&quot;</span><span class="p">,</span> <span class="n">checked_data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">])[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># uint16</span>
+        <span class="k">return</span> <span class="n">Sgp41SrawVoc</span><span class="p">(</span><span class="n">sraw_voc</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="Sgp41I2cCmdMeasureRawSignals"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdMeasureRawSignals">[docs]</a><span class="k">class</span> <span class="nc">Sgp41I2cCmdMeasureRawSignals</span><span class="p">(</span><span class="n">Sgp41I2cCmdBase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    SGP41 Measure Raw Signals I²C Command</span>
+
+<span class="sd">    This command starts/continues the VOC+NOx measurement mode</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Sgp41I2cCmdMeasureRawSignals.__init__"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdMeasureRawSignals.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">relative_humidity</span><span class="p">,</span> <span class="n">temperature</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Constructor.</span>
+
+<span class="sd">        :param int relative_humidity:</span>
+<span class="sd">            Leaves humidity compensation disabled by sending the default value</span>
+<span class="sd">            0x8000 (50%RH) or enables humidity compensation when sending the</span>
+<span class="sd">            relative humidity in ticks (ticks = %RH * 65535 / 100)</span>
+<span class="sd">        :param int temperature:</span>
+<span class="sd">            Leaves humidity compensation disabled by sending the default value</span>
+<span class="sd">            0x6666 (25 degC) or enables humidity compensation when sending the</span>
+<span class="sd">            temperature in ticks (ticks = (degC + 45) * 65535 / 175)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Sgp41I2cCmdMeasureRawSignals</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">command</span><span class="o">=</span><span class="mh">0x2619</span><span class="p">,</span>
+            <span class="n">tx_data</span><span class="o">=</span><span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">pack</span><span class="p">(</span><span class="s2">&quot;&gt;H&quot;</span><span class="p">,</span> <span class="n">relative_humidity</span><span class="p">),</span>
+                              <span class="n">pack</span><span class="p">(</span><span class="s2">&quot;&gt;H&quot;</span><span class="p">,</span> <span class="n">temperature</span><span class="p">)]),</span>
+            <span class="n">rx_length</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span>
+            <span class="n">read_delay</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span>
+            <span class="n">timeout</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+            <span class="n">post_processing_time</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="Sgp41I2cCmdMeasureRawSignals.interpret_response"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdMeasureRawSignals.interpret_response">[docs]</a>    <span class="k">def</span> <span class="nf">interpret_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Validates the CRCs of the received data from the device and returns</span>
+<span class="sd">        the interpreted data.</span>
+
+<span class="sd">        :param bytes data:</span>
+<span class="sd">            Received raw bytes from the read operation.</span>
+<span class="sd">        :return:</span>
+<span class="sd">            - sraw_voc (:py:class:`~sensirion_i2c_sgp4x.sgp41.response_types.Sgp41SrawVoc`) -</span>
+<span class="sd">              the raw signal SRAW_VOC in</span>
+<span class="sd">              ticks which is proportional to the logarithm of the resistance of</span>
+<span class="sd">              the sensing element.</span>
+<span class="sd">            - sraw_nox (:py:class:`~sensirion_i2c_sgp4x.sgp41.response_types.Sgp41SrawNox`) -</span>
+<span class="sd">              the raw signal SRAW_NOX in</span>
+<span class="sd">              ticks which is proportional to the logarithm of the resistance of</span>
+<span class="sd">              the sensing element.</span>
+<span class="sd">        :rtype: tuple</span>
+<span class="sd">        :raise ~sensirion_i2c_driver.errors.I2cChecksumError:</span>
+<span class="sd">            If a received CRC was wrong.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># check and remove CRCs</span>
+        <span class="n">checked_data</span> <span class="o">=</span> <span class="n">Sgp41I2cCmdBase</span><span class="o">.</span><span class="n">interpret_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+
+        <span class="c1"># convert raw received data into proper data types</span>
+        <span class="n">sraw_voc</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">unpack</span><span class="p">(</span><span class="s2">&quot;&gt;H&quot;</span><span class="p">,</span> <span class="n">checked_data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">])[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># uint16</span>
+        <span class="n">sraw_nox</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">unpack</span><span class="p">(</span><span class="s2">&quot;&gt;H&quot;</span><span class="p">,</span> <span class="n">checked_data</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">])[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># uint16</span>
+        <span class="k">return</span> <span class="n">Sgp41SrawVoc</span><span class="p">(</span><span class="n">sraw_voc</span><span class="p">),</span> <span class="n">Sgp41SrawNox</span><span class="p">(</span><span class="n">sraw_nox</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="Sgp41I2cCmdExecuteSelfTest"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdExecuteSelfTest">[docs]</a><span class="k">class</span> <span class="nc">Sgp41I2cCmdExecuteSelfTest</span><span class="p">(</span><span class="n">Sgp41I2cCmdBase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    SGP41 Execute Self Test I²C Command</span>
+
+<span class="sd">    This command triggers the built-in self-test checking for integrity of both</span>
+<span class="sd">    hotplate and MOX material and returns the result of this test as 2 bytes</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Sgp41I2cCmdExecuteSelfTest.__init__"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdExecuteSelfTest.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Constructor.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Sgp41I2cCmdExecuteSelfTest</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">command</span><span class="o">=</span><span class="mh">0x280E</span><span class="p">,</span>
+            <span class="n">tx_data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">rx_length</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+            <span class="n">read_delay</span><span class="o">=</span><span class="mf">0.32</span><span class="p">,</span>
+            <span class="n">timeout</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+            <span class="n">post_processing_time</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="Sgp41I2cCmdExecuteSelfTest.interpret_response"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdExecuteSelfTest.interpret_response">[docs]</a>    <span class="k">def</span> <span class="nf">interpret_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Validates the CRCs of the received data from the device and returns</span>
+<span class="sd">        the interpreted data.</span>
+
+<span class="sd">        :param bytes data:</span>
+<span class="sd">            Received raw bytes from the read operation.</span>
+<span class="sd">        :return: 0xXX 0xYY: ignore most significant byte 0xXX. The four least</span>
+<span class="sd">                 significant bits of the least significant byte 0xYY provide</span>
+<span class="sd">                 information if the self-test has or has not passed for each</span>
+<span class="sd">                 individual pixel. All zero mean all tests passed successfully.</span>
+<span class="sd">                 Check the datasheet for more detailed information.</span>
+<span class="sd">        :rtype: int</span>
+<span class="sd">        :raise ~sensirion_i2c_driver.errors.I2cChecksumError:</span>
+<span class="sd">            If a received CRC was wrong.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># check and remove CRCs</span>
+        <span class="n">checked_data</span> <span class="o">=</span> <span class="n">Sgp41I2cCmdBase</span><span class="o">.</span><span class="n">interpret_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+
+        <span class="c1"># convert raw received data into proper data types</span>
+        <span class="n">test_result</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">unpack</span><span class="p">(</span><span class="s2">&quot;&gt;H&quot;</span><span class="p">,</span> <span class="n">checked_data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">])[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># uint16</span>
+        <span class="k">return</span> <span class="n">test_result</span></div></div>
+
+
+<div class="viewcode-block" id="Sgp41I2cCmdTurnHeaterOff"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdTurnHeaterOff">[docs]</a><span class="k">class</span> <span class="nc">Sgp41I2cCmdTurnHeaterOff</span><span class="p">(</span><span class="n">Sgp41I2cCmdBase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    SGP41 Turn Heater Off I²C Command</span>
+
+<span class="sd">    This command turns the hotplate off and stops the measurement.</span>
+<span class="sd">    Subsequently, the sensor enters the idle mode.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Sgp41I2cCmdTurnHeaterOff.__init__"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdTurnHeaterOff.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Constructor.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Sgp41I2cCmdTurnHeaterOff</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">command</span><span class="o">=</span><span class="mh">0x3615</span><span class="p">,</span>
+            <span class="n">tx_data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">rx_length</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">read_delay</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+            <span class="n">timeout</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+            <span class="n">post_processing_time</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span>
+        <span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="Sgp41I2cCmdGetSerialNumber"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdGetSerialNumber">[docs]</a><span class="k">class</span> <span class="nc">Sgp41I2cCmdGetSerialNumber</span><span class="p">(</span><span class="n">Sgp41I2cCmdBase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    SGP41 Get Serial Number I²C Command</span>
+
+<span class="sd">    This command provides the decimal serial number of the SGP41 chip by</span>
+<span class="sd">    returning 3x2 bytes.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="Sgp41I2cCmdGetSerialNumber.__init__"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdGetSerialNumber.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Constructor.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Sgp41I2cCmdGetSerialNumber</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">command</span><span class="o">=</span><span class="mh">0x3682</span><span class="p">,</span>
+            <span class="n">tx_data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">rx_length</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span>
+            <span class="n">read_delay</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span>
+            <span class="n">timeout</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+            <span class="n">post_processing_time</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="Sgp41I2cCmdGetSerialNumber.interpret_response"><a class="viewcode-back" href="../../../api.html#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdGetSerialNumber.interpret_response">[docs]</a>    <span class="k">def</span> <span class="nf">interpret_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Validates the CRCs of the received data from the device and returns</span>
+<span class="sd">        the interpreted data.</span>
+
+<span class="sd">        :param bytes data:</span>
+<span class="sd">            Received raw bytes from the read operation.</span>
+<span class="sd">        :return: 48-bit unique serial number</span>
+<span class="sd">        :rtype: list(int)</span>
+<span class="sd">        :raise ~sensirion_i2c_driver.errors.I2cChecksumError:</span>
+<span class="sd">            If a received CRC was wrong.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># check and remove CRCs</span>
+        <span class="n">checked_data</span> <span class="o">=</span> <span class="n">Sgp41I2cCmdBase</span><span class="o">.</span><span class="n">interpret_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+
+        <span class="c1"># convert raw received data into proper data types</span>
+        <span class="n">serial_number</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">ii</span><span class="p">)</span> <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span>
+                         <span class="n">unpack</span><span class="p">(</span><span class="s2">&quot;&gt;</span><span class="si">{}</span><span class="s2">H&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">checked_data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">6</span><span class="p">])</span> <span class="o">//</span> <span class="mi">2</span><span class="p">),</span> <span class="n">checked_data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">6</span><span class="p">])]</span>  <span class="c1"># list(uint16)</span>
+        <span class="k">return</span> <span class="n">serial_number</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021 Sensirion AG, Switzerland
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-book"> Other Versions</span>
+        v: 0.1.0
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Tags</dt>
+            <dd><a href="commands.html">0.1.0</a></dd>
+        </dl>
+        <dl>
+            <dt>Branches</dt>
+            <dd><a href="../../../../master/index.html">master</a></dd>
+        </dl>
+    </div>
+</div>
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
