@@ -46,9 +46,8 @@ class Sgp41I2cDevice(I2cDevice):
 
         :param relative_humidity: relative humidity in percent. Defaults to 50% RH
         :param temperature: temperature in degree celsius. Defaults to 25°C
-        :return:
-            - raw VOC signal (:py:class:`~sensirion_i2c_sgp4x.sgp41.response_types.Sgp41SrawVoc`)
-        :rtype: tuple
+        :return: raw VOC signal (:py:class:`~sensirion_i2c_sgp4x.sgp41.response_types.Sgp41SrawVoc`)
+        :rtype: :py:class:`~sensirion_i2c_sgp4x.sgp41.response_types.Sgp41SrawVoc`
         """
 
         if relative_humidity is None:
