@@ -97,8 +97,8 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#linux-i2c-hardware">Linux I²C Hardware</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#sgp40-1">SGP40</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#sgp41-1">SGP41</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">SGP40</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">SGP41</a></li>
 </ul>
 </li>
 </ul>
@@ -266,8 +266,8 @@ for the SensorBridge and the base SHDLC driver used in the example can be instal
 <h2>Linux I²C Hardware<a class="headerlink" href="#linux-i2c-hardware" title="Permalink to this headline">¶</a></h2>
 <p>The following examples show how to use the SGP40 and SGP41 sensors with a generic Linux I²C hardware
 (e.g. attached to the Raspberry Pi I²C port 1)</p>
-<div class="section" id="sgp40-1">
-<h3>SGP40<a class="headerlink" href="#sgp40-1" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id1">
+<h3>SGP40<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">from</span> <span class="nn">sensirion_i2c_driver</span> <span class="kn">import</span> <span class="n">LinuxI2cTransceiver</span><span class="p">,</span> <span class="n">I2cConnection</span>
 <span class="kn">from</span> <span class="nn">sensirion_i2c_sgp4x</span> <span class="kn">import</span> <span class="n">Sgp40I2cDevice</span>
@@ -288,8 +288,8 @@ for the SensorBridge and the base SHDLC driver used in the example can be instal
 </pre></div>
 </div>
 </div>
-<div class="section" id="sgp41-1">
-<h3>SGP41<a class="headerlink" href="#sgp41-1" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h3>SGP41<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">from</span> <span class="nn">sensirion_i2c_driver</span> <span class="kn">import</span> <span class="n">LinuxI2cTransceiver</span><span class="p">,</span> <span class="n">I2cConnection</span>
 <span class="kn">from</span> <span class="nn">sensirion_i2c_sgp4x</span> <span class="kn">import</span> <span class="n">Sgp41I2cDevice</span>
