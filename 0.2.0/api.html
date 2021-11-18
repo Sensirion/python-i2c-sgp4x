@@ -1,0 +1,1181 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>API Documentation &mdash; sensirion-i2c-sgp4x 0.1.1 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/banner.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Quick Start" href="quickstart.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> sensirion-i2c-sgp4x
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#sgp40">SGP40</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-sensirion_i2c_sgp4x.sgp40.device">Sgp40I2cDevice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-sensirion_i2c_sgp4x.sgp40.commands">Sgp40I2cCommand</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-sensirion_i2c_sgp4x.sgp40.response_types">Response Types</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#sgp41">SGP41</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-sensirion_i2c_sgp4x.sgp41.device">Sgp41I2cDevice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-sensirion_i2c_sgp4x.sgp41.commands">Sgp41I2cCommand</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Response Types</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">sensirion-i2c-sgp4x</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>API Documentation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/api.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="api-documentation">
+<h1>API Documentation<a class="headerlink" href="#api-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="sgp40">
+<h2>SGP40<a class="headerlink" href="#sgp40" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-sensirion_i2c_sgp4x.sgp40.device">
+<span id="sgp40i2cdevice"></span><h3>Sgp40I2cDevice<a class="headerlink" href="#module-sensirion_i2c_sgp4x.sgp40.device" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="sensirion_i2c_sgp4x.sgp40.device.Sgp40I2cDevice">
+<em class="property">class </em><code class="descclassname">sensirion_i2c_sgp4x.sgp40.device.</code><code class="descname">Sgp40I2cDevice</code><span class="sig-paren">(</span><em>connection</em>, <em>slave_address=89</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp40/device.html#Sgp40I2cDevice"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp40.device.Sgp40I2cDevice" title="Permalink to this definition">¶</a></dt>
+<dd><p>SGP40 I²C device class to allow executing I²C commands.</p>
+<dl class="method">
+<dt id="sensirion_i2c_sgp4x.sgp40.device.Sgp40I2cDevice.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>connection</em>, <em>slave_address=89</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp40/device.html#Sgp40I2cDevice.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp40.device.Sgp40I2cDevice.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs a new SGP40 I²C device.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>connection</strong> (<a class="reference external" href="https://sensirion.github.io/python-i2c-driver/api.html#sensirion_i2c_driver.connection.I2cConnection" title="(in Sensirion I²C Python Driver v1.0.1)"><em>I2cConnection</em></a>) – The I²C connection to use for communication.</li>
+<li><strong>slave_address</strong> (<em>byte</em>) – The I²C slave address, defaults to 0x59.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_i2c_sgp4x.sgp40.device.Sgp40I2cDevice.get_serial_number">
+<code class="descname">get_serial_number</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp40/device.html#Sgp40I2cDevice.get_serial_number"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp40.device.Sgp40I2cDevice.get_serial_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get Serial Number</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">48-bit serial number as int</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_i2c_sgp4x.sgp40.device.Sgp40I2cDevice.measure_raw">
+<code class="descname">measure_raw</code><span class="sig-paren">(</span><em>relative_humidity=None</em>, <em>temperature=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp40/device.html#Sgp40I2cDevice.measure_raw"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp40.device.Sgp40I2cDevice.measure_raw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read raw VOC signal</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>relative_humidity</strong> – relative humidity in percent. Defaults to 50% RH</li>
+<li><strong>temperature</strong> – temperature in degree celsius. Defaults to 25°C</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><ul class="simple">
+<li>raw VOC signal (<a class="reference internal" href="#sensirion_i2c_sgp4x.sgp40.response_types.Sgp40SrawVoc" title="sensirion_i2c_sgp4x.sgp40.response_types.Sgp40SrawVoc"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sgp40SrawVoc</span></code></a>)</li>
+</ul>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#sensirion_i2c_sgp4x.sgp40.response_types.Sgp40SrawVoc" title="sensirion_i2c_sgp4x.sgp40.response_types.Sgp40SrawVoc"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sgp40SrawVoc</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_i2c_sgp4x.sgp40.device.Sgp40I2cDevice.turn_heater_off">
+<code class="descname">turn_heater_off</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp40/device.html#Sgp40I2cDevice.turn_heater_off"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp40.device.Sgp40I2cDevice.turn_heater_off" title="Permalink to this definition">¶</a></dt>
+<dd><p>Turn Heater Off I²C Command</p>
+<p>This command turns the hotplate off and stops the measurement.
+Subsequently, the sensor enters the idle mode.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_i2c_sgp4x.sgp40.device.Sgp40I2cDevice.measure_test">
+<code class="descname">measure_test</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp40/device.html#Sgp40I2cDevice.measure_test"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp40.device.Sgp40I2cDevice.measure_test" title="Permalink to this definition">¶</a></dt>
+<dd><p>Measure Test</p>
+<p>This command triggers the built-in self-test checking for integrity of the
+hotplate and MOX material and returns the result of this test as 2 bytes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">0xD400: all tests passed successfully or 0x4B00: one or more tests have failed</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">uint16</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_i2c_sgp4x.sgp40.device.Sgp40I2cDevice.connection">
+<code class="descname">connection</code><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp40.device.Sgp40I2cDevice.connection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the used I²C connection.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The used I²C connection.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-i2c-driver/api.html#sensirion_i2c_driver.connection.I2cConnection" title="(in Sensirion I²C Python Driver v1.0.1)">I2cConnection</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_i2c_sgp4x.sgp40.device.Sgp40I2cDevice.execute">
+<code class="descname">execute</code><span class="sig-paren">(</span><em>command</em><span class="sig-paren">)</span><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp40.device.Sgp40I2cDevice.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute an I²C command on this device.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>command</strong> (<a class="reference external" href="https://sensirion.github.io/python-i2c-driver/api.html#sensirion_i2c_driver.command.I2cCommand" title="(in Sensirion I²C Python Driver v1.0.1)"><em>I2cCommand</em></a>) – The command to be executed.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The interpreted response of the executed command.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Depends on the executed command.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_i2c_sgp4x.sgp40.device.Sgp40I2cDevice.slave_address">
+<code class="descname">slave_address</code><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp40.device.Sgp40I2cDevice.slave_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the I²C slave address.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The I²C slave address.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">byte</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-sensirion_i2c_sgp4x.sgp40.commands">
+<span id="sgp40i2ccommand"></span><h3>Sgp40I2cCommand<a class="headerlink" href="#module-sensirion_i2c_sgp4x.sgp40.commands" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdBase">
+<em class="property">class </em><code class="descclassname">sensirion_i2c_sgp4x.sgp40.commands.</code><code class="descname">Sgp40I2cCmdBase</code><span class="sig-paren">(</span><em>command</em>, <em>tx_data</em>, <em>rx_length</em>, <em>read_delay</em>, <em>timeout</em>, <em>post_processing_time=0.0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp40/commands.html#Sgp40I2cCmdBase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>SGP40 I²C base command.</p>
+<dl class="method">
+<dt id="sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdBase.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>command</em>, <em>tx_data</em>, <em>rx_length</em>, <em>read_delay</em>, <em>timeout</em>, <em>post_processing_time=0.0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp40/commands.html#Sgp40I2cCmdBase.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdBase.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs a new SGP40 I²C command.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>command</strong> (<em>int/None</em>) – The command ID to be sent to the device. None means that no
+command will be sent, i.e. only <code class="docutils literal notranslate"><span class="pre">tx_data</span></code> (if not None) will
+be sent. No CRC is added to these bytes since the command ID
+usually already contains a CRC.</li>
+<li><strong>tx_data</strong> (<em>bytes-like/list/None</em>) – Bytes to be extended with CRCs and then sent to the I²C device.
+None means that no write header will be sent at all (if <code class="docutils literal notranslate"><span class="pre">command</span></code>
+is None too). An empty list means to send the write header (even if
+<code class="docutils literal notranslate"><span class="pre">command</span></code> is None), but without data following it.</li>
+<li><strong>rx_length</strong> (<em>int/None</em>) – Number of bytes to be read from the I²C device, including CRC
+bytes. None means that no read header is sent at all. Zero means
+to send the read header, but without reading any data.</li>
+<li><strong>read_delay</strong> (<em>float</em>) – Delay (in Seconds) to be inserted between the end of the write
+operation and the beginning of the read operation. This is needed
+if the device needs some time to prepare the RX data, e.g. if it
+has to perform a measurement. Set to 0.0 to indicate that no delay
+is needed, i.e. the device does not need any processing time.</li>
+<li><strong>timeout</strong> (<em>float</em>) – Timeout (in Seconds) to be used in case of clock stretching. If the
+device stretches the clock longer than this value, the transceive
+operation will be aborted with a timeout error. Set to 0.0 to
+indicate that the device will not stretch the clock for this
+command.</li>
+<li><strong>post_processing_time</strong> (<em>float</em>) – Maximum time in seconds the device needs for post processing of
+this command until it is ready to receive the next command. For
+example after a device reset command, the device might need some
+time until it is ready again. Usually this is 0.0s, i.e. no post
+processing is needed.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdBase.interpret_response">
+<code class="descname">interpret_response</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdBase.interpret_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validates the CRCs of the received data from the device and returns
+the data with all CRCs removed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Received raw bytes from the read operation.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The received bytes, or None if there is no data received.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bytes or None</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-i2c-driver/api.html#sensirion_i2c_driver.errors.I2cChecksumError" title="(in Sensirion I²C Python Driver v1.0.1)"><strong>I2cChecksumError</strong></a> – If a received CRC was wrong.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdMeasureRawSignal">
+<em class="property">class </em><code class="descclassname">sensirion_i2c_sgp4x.sgp40.commands.</code><code class="descname">Sgp40I2cCmdMeasureRawSignal</code><span class="sig-paren">(</span><em>relative_humidity</em>, <em>temperature</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp40/commands.html#Sgp40I2cCmdMeasureRawSignal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdMeasureRawSignal" title="Permalink to this definition">¶</a></dt>
+<dd><p>SGP40 Measure Raw Signal I²C Command</p>
+<p>This command starts/continues the VOC measurement mode</p>
+<dl class="method">
+<dt id="sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdMeasureRawSignal.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>relative_humidity</em>, <em>temperature</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp40/commands.html#Sgp40I2cCmdMeasureRawSignal.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdMeasureRawSignal.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>relative_humidity</strong> (<em>int</em>) – Leaves humidity compensation disabled by sending the default value
+0x8000 (50%RH) or enables humidity compensation when sending the
+relative humidity in ticks (ticks = %RH * 65535 / 100)</li>
+<li><strong>temperature</strong> (<em>int</em>) – Leaves humidity compensation disabled by sending the default value
+0x6666 (25 degC) or enables humidity compensation when sending the
+temperature in ticks (ticks = (degC + 45) * 65535 / 175)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdMeasureRawSignal.interpret_response">
+<code class="descname">interpret_response</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp40/commands.html#Sgp40I2cCmdMeasureRawSignal.interpret_response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdMeasureRawSignal.interpret_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validates the CRCs of the received data from the device and returns
+the interpreted data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Received raw bytes from the read operation.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the raw signal SRAW_VOC
+in ticks which is proportional to the logarithm of the
+resistance of the sensing element.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#sensirion_i2c_sgp4x.sgp40.response_types.Sgp40SrawVoc" title="sensirion_i2c_sgp4x.sgp40.response_types.Sgp40SrawVoc"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sgp40SrawVoc</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-i2c-driver/api.html#sensirion_i2c_driver.errors.I2cChecksumError" title="(in Sensirion I²C Python Driver v1.0.1)"><strong>I2cChecksumError</strong></a> – If a received CRC was wrong.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdExecuteSelfTest">
+<em class="property">class </em><code class="descclassname">sensirion_i2c_sgp4x.sgp40.commands.</code><code class="descname">Sgp40I2cCmdExecuteSelfTest</code><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp40/commands.html#Sgp40I2cCmdExecuteSelfTest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdExecuteSelfTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>SGP40 Execute Self Test I²C Command</p>
+<p>This command triggers the built-in self-test checking for integrity of the
+hotplate and MOX material and returns the result of this test as 2 bytes</p>
+<dl class="method">
+<dt id="sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdExecuteSelfTest.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp40/commands.html#Sgp40I2cCmdExecuteSelfTest.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdExecuteSelfTest.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdExecuteSelfTest.interpret_response">
+<code class="descname">interpret_response</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp40/commands.html#Sgp40I2cCmdExecuteSelfTest.interpret_response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdExecuteSelfTest.interpret_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validates the CRCs of the received data from the device and returns
+the interpreted data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Received raw bytes from the read operation.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">0xD4 00: all tests passed successfully or 0x4B 00: one or more
+tests have failed</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-i2c-driver/api.html#sensirion_i2c_driver.errors.I2cChecksumError" title="(in Sensirion I²C Python Driver v1.0.1)"><strong>I2cChecksumError</strong></a> – If a received CRC was wrong.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdTurnHeaterOff">
+<em class="property">class </em><code class="descclassname">sensirion_i2c_sgp4x.sgp40.commands.</code><code class="descname">Sgp40I2cCmdTurnHeaterOff</code><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp40/commands.html#Sgp40I2cCmdTurnHeaterOff"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdTurnHeaterOff" title="Permalink to this definition">¶</a></dt>
+<dd><p>SGP40 Turn Heater Off I²C Command</p>
+<p>This command turns the hotplate off and stops the measurement.
+Subsequently, the sensor enters the idle mode.</p>
+<dl class="method">
+<dt id="sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdTurnHeaterOff.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp40/commands.html#Sgp40I2cCmdTurnHeaterOff.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdTurnHeaterOff.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdTurnHeaterOff.interpret_response">
+<code class="descname">interpret_response</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdTurnHeaterOff.interpret_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validates the CRCs of the received data from the device and returns
+the data with all CRCs removed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Received raw bytes from the read operation.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The received bytes, or None if there is no data received.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bytes or None</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-i2c-driver/api.html#sensirion_i2c_driver.errors.I2cChecksumError" title="(in Sensirion I²C Python Driver v1.0.1)"><strong>I2cChecksumError</strong></a> – If a received CRC was wrong.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdGetSerialNumber">
+<em class="property">class </em><code class="descclassname">sensirion_i2c_sgp4x.sgp40.commands.</code><code class="descname">Sgp40I2cCmdGetSerialNumber</code><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp40/commands.html#Sgp40I2cCmdGetSerialNumber"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdGetSerialNumber" title="Permalink to this definition">¶</a></dt>
+<dd><p>SGP40 Get Serial Number I²C Command</p>
+<p>This command provides the decimal serial number of the SGP40 chip by
+returning 3x2 bytes.</p>
+<dl class="method">
+<dt id="sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdGetSerialNumber.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp40/commands.html#Sgp40I2cCmdGetSerialNumber.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdGetSerialNumber.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdGetSerialNumber.interpret_response">
+<code class="descname">interpret_response</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp40/commands.html#Sgp40I2cCmdGetSerialNumber.interpret_response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp40.commands.Sgp40I2cCmdGetSerialNumber.interpret_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validates the CRCs of the received data from the device and returns
+the interpreted data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Received raw bytes from the read operation.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">48-bit unique serial number</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list(int)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-i2c-driver/api.html#sensirion_i2c_driver.errors.I2cChecksumError" title="(in Sensirion I²C Python Driver v1.0.1)"><strong>I2cChecksumError</strong></a> – If a received CRC was wrong.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-sensirion_i2c_sgp4x.sgp40.response_types">
+<span id="response-types"></span><h3>Response Types<a class="headerlink" href="#module-sensirion_i2c_sgp4x.sgp40.response_types" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="sensirion_i2c_sgp4x.sgp40.response_types.Sgp40SrawVoc">
+<em class="property">class </em><code class="descclassname">sensirion_i2c_sgp4x.sgp40.response_types.</code><code class="descname">Sgp40SrawVoc</code><span class="sig-paren">(</span><em>ticks</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp40/response_types.html#Sgp40SrawVoc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp40.response_types.Sgp40SrawVoc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents a measurement response for the raw VOC signal.</p>
+<p>With the <a class="reference internal" href="#sensirion_i2c_sgp4x.sgp40.response_types.Sgp40SrawVoc.ticks" title="sensirion_i2c_sgp4x.sgp40.response_types.Sgp40SrawVoc.ticks"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ticks</span></code></a> you can access the raw data as received from the
+device.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ticks</strong> (<em>int</em>) – The read ticks as received from the device.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="sensirion_i2c_sgp4x.sgp40.response_types.Sgp40SrawVoc.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>ticks</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp40/response_types.html#Sgp40SrawVoc.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp40.response_types.Sgp40SrawVoc.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates an instance from the received raw data.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_i2c_sgp4x.sgp40.response_types.Sgp40SrawVoc.ticks">
+<code class="descname">ticks</code><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp40.response_types.Sgp40SrawVoc.ticks" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ticks (int) as received from the device.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="sgp41">
+<h2>SGP41<a class="headerlink" href="#sgp41" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-sensirion_i2c_sgp4x.sgp41.device">
+<span id="sgp41i2cdevice"></span><h3>Sgp41I2cDevice<a class="headerlink" href="#module-sensirion_i2c_sgp4x.sgp41.device" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="sensirion_i2c_sgp4x.sgp41.device.Sgp41I2cDevice">
+<em class="property">class </em><code class="descclassname">sensirion_i2c_sgp4x.sgp41.device.</code><code class="descname">Sgp41I2cDevice</code><span class="sig-paren">(</span><em>connection</em>, <em>slave_address=89</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp41/device.html#Sgp41I2cDevice"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.device.Sgp41I2cDevice" title="Permalink to this definition">¶</a></dt>
+<dd><p>SGP41 I²C device class to allow executing I²C commands.</p>
+<dl class="method">
+<dt id="sensirion_i2c_sgp4x.sgp41.device.Sgp41I2cDevice.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>connection</em>, <em>slave_address=89</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp41/device.html#Sgp41I2cDevice.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.device.Sgp41I2cDevice.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs a new SGP41 I²C device.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>connection</strong> (<a class="reference external" href="https://sensirion.github.io/python-i2c-driver/api.html#sensirion_i2c_driver.connection.I2cConnection" title="(in Sensirion I²C Python Driver v1.0.1)"><em>I2cConnection</em></a>) – The I²C connection to use for communication.</li>
+<li><strong>slave_address</strong> (<em>byte</em>) – The I²C slave address, defaults to 0x59.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_i2c_sgp4x.sgp41.device.Sgp41I2cDevice.get_serial_number">
+<code class="descname">get_serial_number</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp41/device.html#Sgp41I2cDevice.get_serial_number"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.device.Sgp41I2cDevice.get_serial_number" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get Serial Number</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">48-bit serial number as int</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_i2c_sgp4x.sgp41.device.Sgp41I2cDevice.conditioning">
+<code class="descname">conditioning</code><span class="sig-paren">(</span><em>relative_humidity=None</em>, <em>temperature=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp41/device.html#Sgp41I2cDevice.conditioning"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.device.Sgp41I2cDevice.conditioning" title="Permalink to this definition">¶</a></dt>
+<dd><p>This command starts the conditioning, i.e., the VOC pixel will be operated
+at the same temperature as it is by calling the measure_raw command
+while the NOx pixel will be operated at a different temperature for
+conditioning. This command returns only the measured raw signal of the VOC
+pixel SRAW_VOC</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>relative_humidity</strong> – relative humidity in percent. Defaults to 50% RH</li>
+<li><strong>temperature</strong> – temperature in degree celsius. Defaults to 25°C</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">raw VOC signal (<a class="reference internal" href="#sensirion_i2c_sgp4x.sgp41.response_types.Sgp41SrawVoc" title="sensirion_i2c_sgp4x.sgp41.response_types.Sgp41SrawVoc"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sgp41SrawVoc</span></code></a>)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#sensirion_i2c_sgp4x.sgp41.response_types.Sgp41SrawVoc" title="sensirion_i2c_sgp4x.sgp41.response_types.Sgp41SrawVoc"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sgp41SrawVoc</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_i2c_sgp4x.sgp41.device.Sgp41I2cDevice.measure_raw">
+<code class="descname">measure_raw</code><span class="sig-paren">(</span><em>relative_humidity=None</em>, <em>temperature=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp41/device.html#Sgp41I2cDevice.measure_raw"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.device.Sgp41I2cDevice.measure_raw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read raw VOC signal and raw NOx signal</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>relative_humidity</strong> – relative humidity in percent. Defaults to 50% RH</li>
+<li><strong>temperature</strong> – temperature in degree celsius. Defaults to 25°C</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><ul class="simple">
+<li>raw VOC signal (<a class="reference internal" href="#sensirion_i2c_sgp4x.sgp41.response_types.Sgp41SrawVoc" title="sensirion_i2c_sgp4x.sgp41.response_types.Sgp41SrawVoc"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sgp41SrawVoc</span></code></a>)</li>
+<li>raw NOx signal (<a class="reference internal" href="#sensirion_i2c_sgp4x.sgp41.response_types.Sgp41SrawNox" title="sensirion_i2c_sgp4x.sgp41.response_types.Sgp41SrawNox"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sgp41SrawNox</span></code></a>)</li>
+</ul>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">tuple</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_i2c_sgp4x.sgp41.device.Sgp41I2cDevice.turn_heater_off">
+<code class="descname">turn_heater_off</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp41/device.html#Sgp41I2cDevice.turn_heater_off"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.device.Sgp41I2cDevice.turn_heater_off" title="Permalink to this definition">¶</a></dt>
+<dd><p>Turn Heater Off I²C Command</p>
+<p>This command turns the hotplate off and stops the measurement.
+Subsequently, the sensor enters the idle mode.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_i2c_sgp4x.sgp41.device.Sgp41I2cDevice.measure_test">
+<code class="descname">measure_test</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp41/device.html#Sgp41I2cDevice.measure_test"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.device.Sgp41I2cDevice.measure_test" title="Permalink to this definition">¶</a></dt>
+<dd><p>Measure Test</p>
+<p>This command triggers the built-in self-test checking for integrity of the
+hotplate and MOX material and returns the result of this test as 2 bytes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">0xD400: all tests passed successfully or 0x4B00: one or more tests have failed</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">uint16</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_i2c_sgp4x.sgp41.device.Sgp41I2cDevice.connection">
+<code class="descname">connection</code><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.device.Sgp41I2cDevice.connection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the used I²C connection.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The used I²C connection.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-i2c-driver/api.html#sensirion_i2c_driver.connection.I2cConnection" title="(in Sensirion I²C Python Driver v1.0.1)">I2cConnection</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_i2c_sgp4x.sgp41.device.Sgp41I2cDevice.execute">
+<code class="descname">execute</code><span class="sig-paren">(</span><em>command</em><span class="sig-paren">)</span><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.device.Sgp41I2cDevice.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute an I²C command on this device.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>command</strong> (<a class="reference external" href="https://sensirion.github.io/python-i2c-driver/api.html#sensirion_i2c_driver.command.I2cCommand" title="(in Sensirion I²C Python Driver v1.0.1)"><em>I2cCommand</em></a>) – The command to be executed.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The interpreted response of the executed command.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">Depends on the executed command.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_i2c_sgp4x.sgp41.device.Sgp41I2cDevice.slave_address">
+<code class="descname">slave_address</code><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.device.Sgp41I2cDevice.slave_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the I²C slave address.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The I²C slave address.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">byte</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-sensirion_i2c_sgp4x.sgp41.commands">
+<span id="sgp41i2ccommand"></span><h3>Sgp41I2cCommand<a class="headerlink" href="#module-sensirion_i2c_sgp4x.sgp41.commands" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdBase">
+<em class="property">class </em><code class="descclassname">sensirion_i2c_sgp4x.sgp41.commands.</code><code class="descname">Sgp41I2cCmdBase</code><span class="sig-paren">(</span><em>command</em>, <em>tx_data</em>, <em>rx_length</em>, <em>read_delay</em>, <em>timeout</em>, <em>post_processing_time=0.0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp41/commands.html#Sgp41I2cCmdBase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>SGP41 I²C base command.</p>
+<dl class="method">
+<dt id="sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdBase.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>command</em>, <em>tx_data</em>, <em>rx_length</em>, <em>read_delay</em>, <em>timeout</em>, <em>post_processing_time=0.0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp41/commands.html#Sgp41I2cCmdBase.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdBase.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs a new SGP41 I²C command.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>command</strong> (<em>int/None</em>) – The command ID to be sent to the device. None means that no
+command will be sent, i.e. only <code class="docutils literal notranslate"><span class="pre">tx_data</span></code> (if not None) will
+be sent. No CRC is added to these bytes since the command ID
+usually already contains a CRC.</li>
+<li><strong>tx_data</strong> (<em>bytes-like/list/None</em>) – Bytes to be extended with CRCs and then sent to the I²C device.
+None means that no write header will be sent at all (if <code class="docutils literal notranslate"><span class="pre">command</span></code>
+is None too). An empty list means to send the write header (even if
+<code class="docutils literal notranslate"><span class="pre">command</span></code> is None), but without data following it.</li>
+<li><strong>rx_length</strong> (<em>int/None</em>) – Number of bytes to be read from the I²C device, including CRC
+bytes. None means that no read header is sent at all. Zero means
+to send the read header, but without reading any data.</li>
+<li><strong>read_delay</strong> (<em>float</em>) – Delay (in Seconds) to be inserted between the end of the write
+operation and the beginning of the read operation. This is needed
+if the device needs some time to prepare the RX data, e.g. if it
+has to perform a measurement. Set to 0.0 to indicate that no delay
+is needed, i.e. the device does not need any processing time.</li>
+<li><strong>timeout</strong> (<em>float</em>) – Timeout (in Seconds) to be used in case of clock stretching. If the
+device stretches the clock longer than this value, the transceive
+operation will be aborted with a timeout error. Set to 0.0 to
+indicate that the device will not stretch the clock for this
+command.</li>
+<li><strong>post_processing_time</strong> (<em>float</em>) – Maximum time in seconds the device needs for post processing of
+this command until it is ready to receive the next command. For
+example after a device reset command, the device might need some
+time until it is ready again. Usually this is 0.0s, i.e. no post
+processing is needed.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdBase.interpret_response">
+<code class="descname">interpret_response</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdBase.interpret_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validates the CRCs of the received data from the device and returns
+the data with all CRCs removed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Received raw bytes from the read operation.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The received bytes, or None if there is no data received.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bytes or None</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-i2c-driver/api.html#sensirion_i2c_driver.errors.I2cChecksumError" title="(in Sensirion I²C Python Driver v1.0.1)"><strong>I2cChecksumError</strong></a> – If a received CRC was wrong.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdExecuteConditioning">
+<em class="property">class </em><code class="descclassname">sensirion_i2c_sgp4x.sgp41.commands.</code><code class="descname">Sgp41I2cCmdExecuteConditioning</code><span class="sig-paren">(</span><em>default_rh</em>, <em>default_t</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp41/commands.html#Sgp41I2cCmdExecuteConditioning"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdExecuteConditioning" title="Permalink to this definition">¶</a></dt>
+<dd><p>SGP41 Execute Conditioning I²C Command</p>
+<p>This command starts the conditioning, i.e., the VOC pixel will be operated
+at the same temperature as it is by calling the sgp41_measure_raw command
+while the NOx pixel will be operated at a different temperature for
+conditioning. This command returns only the measured raw signal of the VOC
+pixel SRAW_VOC as 2 bytes (+ 1 CRC byte).</p>
+<dl class="method">
+<dt id="sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdExecuteConditioning.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>default_rh</em>, <em>default_t</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp41/commands.html#Sgp41I2cCmdExecuteConditioning.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdExecuteConditioning.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>default_rh</strong> (<em>int</em>) – Default conditions for relative humidty.</li>
+<li><strong>default_t</strong> (<em>int</em>) – Default conditions for temperature.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdExecuteConditioning.interpret_response">
+<code class="descname">interpret_response</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp41/commands.html#Sgp41I2cCmdExecuteConditioning.interpret_response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdExecuteConditioning.interpret_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validates the CRCs of the received data from the device and returns
+the interpreted data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Received raw bytes from the read operation.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">the raw signal SRAW_VOC
+in ticks which is proportional to the logarithm of the
+resistance of the sensing element.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#sensirion_i2c_sgp4x.sgp41.response_types.Sgp41SrawVoc" title="sensirion_i2c_sgp4x.sgp41.response_types.Sgp41SrawVoc"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sgp41SrawVoc</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-i2c-driver/api.html#sensirion_i2c_driver.errors.I2cChecksumError" title="(in Sensirion I²C Python Driver v1.0.1)"><strong>I2cChecksumError</strong></a> – If a received CRC was wrong.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdMeasureRawSignals">
+<em class="property">class </em><code class="descclassname">sensirion_i2c_sgp4x.sgp41.commands.</code><code class="descname">Sgp41I2cCmdMeasureRawSignals</code><span class="sig-paren">(</span><em>relative_humidity</em>, <em>temperature</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp41/commands.html#Sgp41I2cCmdMeasureRawSignals"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdMeasureRawSignals" title="Permalink to this definition">¶</a></dt>
+<dd><p>SGP41 Measure Raw Signals I²C Command</p>
+<p>This command starts/continues the VOC+NOx measurement mode</p>
+<dl class="method">
+<dt id="sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdMeasureRawSignals.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>relative_humidity</em>, <em>temperature</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp41/commands.html#Sgp41I2cCmdMeasureRawSignals.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdMeasureRawSignals.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>relative_humidity</strong> (<em>int</em>) – Leaves humidity compensation disabled by sending the default value
+0x8000 (50%RH) or enables humidity compensation when sending the
+relative humidity in ticks (ticks = %RH * 65535 / 100)</li>
+<li><strong>temperature</strong> (<em>int</em>) – Leaves humidity compensation disabled by sending the default value
+0x6666 (25 degC) or enables humidity compensation when sending the
+temperature in ticks (ticks = (degC + 45) * 65535 / 175)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdMeasureRawSignals.interpret_response">
+<code class="descname">interpret_response</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp41/commands.html#Sgp41I2cCmdMeasureRawSignals.interpret_response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdMeasureRawSignals.interpret_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validates the CRCs of the received data from the device and returns
+the interpreted data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Received raw bytes from the read operation.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><ul class="simple">
+<li>sraw_voc (<a class="reference internal" href="#sensirion_i2c_sgp4x.sgp41.response_types.Sgp41SrawVoc" title="sensirion_i2c_sgp4x.sgp41.response_types.Sgp41SrawVoc"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sgp41SrawVoc</span></code></a>) -
+the raw signal SRAW_VOC in
+ticks which is proportional to the logarithm of the resistance of
+the sensing element.</li>
+<li>sraw_nox (<a class="reference internal" href="#sensirion_i2c_sgp4x.sgp41.response_types.Sgp41SrawNox" title="sensirion_i2c_sgp4x.sgp41.response_types.Sgp41SrawNox"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sgp41SrawNox</span></code></a>) -
+the raw signal SRAW_NOX in
+ticks which is proportional to the logarithm of the resistance of
+the sensing element.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">tuple</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-i2c-driver/api.html#sensirion_i2c_driver.errors.I2cChecksumError" title="(in Sensirion I²C Python Driver v1.0.1)"><strong>I2cChecksumError</strong></a> – If a received CRC was wrong.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdExecuteSelfTest">
+<em class="property">class </em><code class="descclassname">sensirion_i2c_sgp4x.sgp41.commands.</code><code class="descname">Sgp41I2cCmdExecuteSelfTest</code><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp41/commands.html#Sgp41I2cCmdExecuteSelfTest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdExecuteSelfTest" title="Permalink to this definition">¶</a></dt>
+<dd><p>SGP41 Execute Self Test I²C Command</p>
+<p>This command triggers the built-in self-test checking for integrity of both
+hotplate and MOX material and returns the result of this test as 2 bytes</p>
+<dl class="method">
+<dt id="sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdExecuteSelfTest.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp41/commands.html#Sgp41I2cCmdExecuteSelfTest.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdExecuteSelfTest.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdExecuteSelfTest.interpret_response">
+<code class="descname">interpret_response</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp41/commands.html#Sgp41I2cCmdExecuteSelfTest.interpret_response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdExecuteSelfTest.interpret_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validates the CRCs of the received data from the device and returns
+the interpreted data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Received raw bytes from the read operation.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">0xXX 0xYY: ignore most significant byte 0xXX. The four least
+significant bits of the least significant byte 0xYY provide
+information if the self-test has or has not passed for each
+individual pixel. All zero mean all tests passed successfully.
+Check the datasheet for more detailed information.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-i2c-driver/api.html#sensirion_i2c_driver.errors.I2cChecksumError" title="(in Sensirion I²C Python Driver v1.0.1)"><strong>I2cChecksumError</strong></a> – If a received CRC was wrong.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdTurnHeaterOff">
+<em class="property">class </em><code class="descclassname">sensirion_i2c_sgp4x.sgp41.commands.</code><code class="descname">Sgp41I2cCmdTurnHeaterOff</code><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp41/commands.html#Sgp41I2cCmdTurnHeaterOff"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdTurnHeaterOff" title="Permalink to this definition">¶</a></dt>
+<dd><p>SGP41 Turn Heater Off I²C Command</p>
+<p>This command turns the hotplate off and stops the measurement.
+Subsequently, the sensor enters the idle mode.</p>
+<dl class="method">
+<dt id="sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdTurnHeaterOff.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp41/commands.html#Sgp41I2cCmdTurnHeaterOff.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdTurnHeaterOff.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdTurnHeaterOff.interpret_response">
+<code class="descname">interpret_response</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdTurnHeaterOff.interpret_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validates the CRCs of the received data from the device and returns
+the data with all CRCs removed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Received raw bytes from the read operation.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The received bytes, or None if there is no data received.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bytes or None</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-i2c-driver/api.html#sensirion_i2c_driver.errors.I2cChecksumError" title="(in Sensirion I²C Python Driver v1.0.1)"><strong>I2cChecksumError</strong></a> – If a received CRC was wrong.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdGetSerialNumber">
+<em class="property">class </em><code class="descclassname">sensirion_i2c_sgp4x.sgp41.commands.</code><code class="descname">Sgp41I2cCmdGetSerialNumber</code><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp41/commands.html#Sgp41I2cCmdGetSerialNumber"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdGetSerialNumber" title="Permalink to this definition">¶</a></dt>
+<dd><p>SGP41 Get Serial Number I²C Command</p>
+<p>This command provides the decimal serial number of the SGP41 chip by
+returning 3x2 bytes.</p>
+<dl class="method">
+<dt id="sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdGetSerialNumber.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp41/commands.html#Sgp41I2cCmdGetSerialNumber.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdGetSerialNumber.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdGetSerialNumber.interpret_response">
+<code class="descname">interpret_response</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp41/commands.html#Sgp41I2cCmdGetSerialNumber.interpret_response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.commands.Sgp41I2cCmdGetSerialNumber.interpret_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Validates the CRCs of the received data from the device and returns
+the interpreted data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Received raw bytes from the read operation.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">48-bit unique serial number</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list(int)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-i2c-driver/api.html#sensirion_i2c_driver.errors.I2cChecksumError" title="(in Sensirion I²C Python Driver v1.0.1)"><strong>I2cChecksumError</strong></a> – If a received CRC was wrong.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="id1">
+<h3>Response Types<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<span class="target" id="module-sensirion_i2c_sgp4x.sgp41.response_types"></span><dl class="class">
+<dt id="sensirion_i2c_sgp4x.sgp41.response_types.Sgp41SrawVoc">
+<em class="property">class </em><code class="descclassname">sensirion_i2c_sgp4x.sgp41.response_types.</code><code class="descname">Sgp41SrawVoc</code><span class="sig-paren">(</span><em>ticks</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp41/response_types.html#Sgp41SrawVoc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.response_types.Sgp41SrawVoc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents a measurement response for the raw VOC signal.</p>
+<p>With the <a class="reference internal" href="#sensirion_i2c_sgp4x.sgp41.response_types.Sgp41SrawVoc.ticks" title="sensirion_i2c_sgp4x.sgp41.response_types.Sgp41SrawVoc.ticks"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ticks</span></code></a> you can access the raw data as received from the
+device.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ticks</strong> (<em>int</em>) – The read ticks as received from the device.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="sensirion_i2c_sgp4x.sgp41.response_types.Sgp41SrawVoc.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>ticks</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp41/response_types.html#Sgp41SrawVoc.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.response_types.Sgp41SrawVoc.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates an instance from the received raw data.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_i2c_sgp4x.sgp41.response_types.Sgp41SrawVoc.ticks">
+<code class="descname">ticks</code><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.response_types.Sgp41SrawVoc.ticks" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ticks (int) as received from the device.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="sensirion_i2c_sgp4x.sgp41.response_types.Sgp41SrawNox">
+<em class="property">class </em><code class="descclassname">sensirion_i2c_sgp4x.sgp41.response_types.</code><code class="descname">Sgp41SrawNox</code><span class="sig-paren">(</span><em>ticks</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp41/response_types.html#Sgp41SrawNox"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.response_types.Sgp41SrawNox" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents a measurement response for the raw NOx signal.</p>
+<p>With the <a class="reference internal" href="#sensirion_i2c_sgp4x.sgp41.response_types.Sgp41SrawNox.ticks" title="sensirion_i2c_sgp4x.sgp41.response_types.Sgp41SrawNox.ticks"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ticks</span></code></a> you can access the raw data as received from the
+device.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ticks</strong> (<em>int</em>) – The read ticks as received from the device.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="sensirion_i2c_sgp4x.sgp41.response_types.Sgp41SrawNox.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>ticks</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_i2c_sgp4x/sgp41/response_types.html#Sgp41SrawNox.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.response_types.Sgp41SrawNox.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates an instance from the received raw data.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_i2c_sgp4x.sgp41.response_types.Sgp41SrawNox.ticks">
+<code class="descname">ticks</code><a class="headerlink" href="#sensirion_i2c_sgp4x.sgp41.response_types.Sgp41SrawNox.ticks" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ticks (int) as received from the device.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="quickstart.html" class="btn btn-neutral float-left" title="Quick Start" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021 Sensirion AG, Switzerland
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-book"> Other Versions</span>
+        v: 0.2.0
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Tags</dt>
+            <dd><a href="../0.1.0/api.html">0.1.0</a></dd>
+            <dd><a href="api.html">0.2.0</a></dd>
+        </dl>
+        <dl>
+            <dt>Branches</dt>
+            <dd><a href="../master/api.html">master</a></dd>
+        </dl>
+    </div>
+</div>
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
