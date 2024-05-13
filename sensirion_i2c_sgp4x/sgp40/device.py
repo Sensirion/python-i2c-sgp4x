@@ -5,7 +5,7 @@ from __future__ import absolute_import, division, print_function
 
 from sensirion_i2c_driver import I2cDevice
 
-from .commands import Sgp40I2cCmdMeasureRawSignal, Sgp40I2cCmdExecuteSelfTest, Sgp40I2cCmdTurnHeaterOff,\
+from .commands import Sgp40I2cCmdMeasureRawSignal, Sgp40I2cCmdExecuteSelfTest, Sgp40I2cCmdTurnHeaterOff, \
     Sgp40I2cCmdGetSerialNumber
 
 
