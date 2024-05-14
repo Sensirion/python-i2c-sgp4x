@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - master
-      - fix-docs-build
     tags:
       - "^[0-9]+.[0-9]+.[0-9]+"
 
