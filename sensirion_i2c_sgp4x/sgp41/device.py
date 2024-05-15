@@ -44,6 +44,8 @@ class Sgp41I2cDevice(I2cDevice):
         conditioning. This command returns only the measured raw signal of the VOC
         pixel SRAW_VOC
 
+        WARNING: To avoid damage to the sensing material the conditioning must not exceed 10s!
+
         :param relative_humidity: relative humidity in percent. Defaults to 50% RH
         :param temperature: temperature in degree celsius. Defaults to 25°C
         :return: raw VOC signal (:py:class:`~sensirion_i2c_sgp4x.sgp41.response_types.Sgp41SrawVoc`)

@@ -23,7 +23,8 @@ with ShdlcSerialPort(port='COM1', baudrate=460800) as port:
 
     print("SGP41 Serial Number: {}".format(sgp41.get_serial_number()))
 
-    # Run  conditioning for 10 seconds
+    # Run conditioning for 10 seconds
+    # WARNING: To avoid damage to the sensing material the conditioning must not exceed 10s!
     for _ in range(10):
         time.sleep(1)
         sraw_voc = sgp41.conditioning()
