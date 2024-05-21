@@ -16,6 +16,15 @@ See user manual at
 [https://sensirion.github.io/python-i2c-sgp4x/](https://sensirion.github.io/python-i2c-sgp4x/).
 
 
+## SGP41 Conditioning
+
+After each restart of the SGP41 sensor or when the hotplates have been switched off, the conditioning command must
+be called from idle mode. The conditioning heats the hotplate of the NOx pixel to a different temperature compared
+to the measurement mode enabling a faster switch-on thereafter.
+
+It is recommended to execute the conditioning for 10s, but **10s must not be exceeded** to avoid damage to the sensing material.
+
+
 ## Development
 
 We develop and test this driver using our company internal tools (version
