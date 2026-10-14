@@ -2,10 +2,10 @@ name: Validate and Test Python Package
 on:
   pull_request:
     branches:
-      - master
+      - main
   push:
     branches:
-      - master
+      - main
 
 jobs:
   test:

@@ -13,4 +13,6 @@ Contents
 
    installation
    quickstart
+   development
+   contributing
    api

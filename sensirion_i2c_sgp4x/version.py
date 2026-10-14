@@ -1,4 +1,8 @@
-#!/usr/bin/env python
+# !/usr/bin/env python
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import, division, print_function
-version = "0.1.1"
+
+import importlib.metadata as metadata
+from typing import Final
+
+version: Final[str] = metadata.version("sensirion_i2c_sgp4x")
