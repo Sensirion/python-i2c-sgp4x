@@ -3,11 +3,10 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   documentation:
-      uses: sensirion/.github/.github/workflows/driver.python.documentation.yml@main
-      with:
-        run-environment: "ubuntu-20.04"
-        build-python-version: 3.6
+    uses: sensirion/.github/.github/workflows/driver.python.documentation.yml@main
+    with:
+      use-project-requirements: true
