@@ -65,7 +65,7 @@ test= [
 ]
 
 [project.urls]
-Changelog = "https://github.com/Sensirion/python-i2c-svm4x/blob/main/CHANGELOG.md"
-Repository = "https://github.com/Sensirion/python-i2c-svm4x"
-Documentation = "https://sensirion.github.io/python-i2c-svm4x"
+Changelog = "https://github.com/Sensirion/python-i2c-sgp4x/blob/main/CHANGELOG.md"
+Repository = "https://github.com/Sensirion/python-i2c-sgp4x"
+Documentation = "https://sensirion.github.io/python-i2c-sgp4x"
 
